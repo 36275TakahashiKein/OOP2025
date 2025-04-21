@@ -4,6 +4,7 @@ using System.Security.Cryptography.X509Certificates;
 
 namespace DistanceConverter {
     internal class Program {
+        //あああ
         static void Main(string[] args) {
 
             int start = int.Parse(args[1]);
