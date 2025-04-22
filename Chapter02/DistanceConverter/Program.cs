@@ -17,26 +17,22 @@ namespace DistanceConverter {
             }
         }
 
-        static double FeetToMeter(int feet) {
-            return feet * 0.3048;
-        }
-
-        static double MeterToFeet(int meter) {
-            return meter / 0.3048;
-        }
+       
 
         //フィートからメートルへと対応表を出力。
         static void PrintFeelToMeterList(int start, int end) {
+            FeetConverter converter = new FeetConverter();
             for (int feet = start; feet <= end; feet++) {
-                double meter = FeetToMeter(feet);
+                double meter = converter.ToMeter(feet);
                 Console.WriteLine($"{feet}ft ={meter: 0.0000}m");
             }
         }
 
         //メートルからフィートへと対応表を出力
         static void PrintMeterToFeelList(int start, int end) {
+            FeetConverter converter = new FeetConverter();
             for (int meter = start; meter <= end; meter++) {
-                double feet = MeterToFeet(meter);
+                double feet = converter.FromMeter(meter);
                 Console.WriteLine($"{meter}ft ={feet: 0.0000}m");
             }
         }
