@@ -25,7 +25,7 @@ namespace DistanceConverter {
             return meter / 0.3048;
         }
 
-        //フィートからメートルへと対応表を出力
+        //フィートからメートルへと対応表を出力。
         static void PrintFeelToMeterList(int start, int end) {
             for (int feet = start; feet <= end; feet++) {
                 double meter = FeetToMeter(feet);
