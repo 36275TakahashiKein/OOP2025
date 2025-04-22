@@ -21,18 +21,16 @@ namespace DistanceConverter {
 
         //フィートからメートルへと対応表を出力。
         static void PrintFeelToMeterList(int start, int end) {
-            FeetConverter converter = new FeetConverter();
             for (int feet = start; feet <= end; feet++) {
-                double meter = converter.ToMeter(feet);
+                double meter = FeetConverter.ToMeter(feet);
                 Console.WriteLine($"{feet}ft ={meter: 0.0000}m");
             }
         }
 
         //メートルからフィートへと対応表を出力
         static void PrintMeterToFeelList(int start, int end) {
-            FeetConverter converter = new FeetConverter();
             for (int meter = start; meter <= end; meter++) {
-                double feet = converter.FromMeter(meter);
+                double feet = FeetConverter.FromMeter(meter);
                 Console.WriteLine($"{meter}ft ={feet: 0.0000}m");
             }
         }
