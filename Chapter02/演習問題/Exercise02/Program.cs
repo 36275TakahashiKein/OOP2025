@@ -10,8 +10,26 @@ namespace Exercise02 {
             int start = int.Parse(Console.ReadLine());
             Console.Write("おわり:");
             int end = int.Parse(Console.ReadLine());
-            PrintInchToMeterList(start, end);
-            PrintMeterToInchlist(start, end);
+            //PrintInchToMeterList(start, end);
+            //PrintMeterToInchlist(start, end);
+            PrintYardToMeterList(start, end);
+            PrintMeterToYardlist(start, end);
+        }
+
+        //ヤードからメートルへと対応表を出力。
+        static void PrintYardToMeterList(int start, int end) {
+            for (int yard = start; yard <= end; yard++) {
+                double meter = YardConverter.ToYard(yard);
+                Console.WriteLine($"{yard}yd ={meter: 0.0000}m");
+            }
+        }
+
+        //メートルからヤードへと対応表を出力。
+        static void PrintMeterToYardlist(int start, int end) {
+            for (int meter = start; meter <= end; meter++) {
+                double yard = YardConverter.FromMeter(meter);
+                Console.WriteLine($"{meter}m ={yard: 0.0000}yd");
+            }
         }
 
         //インチからメートルへと対応表を出力。
