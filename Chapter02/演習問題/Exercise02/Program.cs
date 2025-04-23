@@ -11,7 +11,7 @@ namespace Exercise02 {
             Console.Write("おわり:");
             int end = int.Parse(Console.ReadLine());
             PrintInchToMeterList(start, end);
-            //   PrintMeterToInchlist(start, end);
+            PrintMeterToInchlist(start, end);
         }
 
         //インチからメートルへと対応表を出力。
@@ -23,11 +23,11 @@ namespace Exercise02 {
         }
 
         //メートルからインチへと対応表を出力。
-        //static void PrintMeterToInchlist(int start, int end) {
-        //    for (int meter = start; meter <= end; meter++) {
-        //        double inch = InchConverter.FromMeter(meter);
-        //        Console.WriteLine($"{meter}m ={inch: 0.0000}inch");
-        //    }
-        //}
+        static void PrintMeterToInchlist(int start, int end) {
+            for (int meter = start; meter <= end; meter++) {
+                double inch = InchConverter.FromMeter(meter);
+                Console.WriteLine($"{meter}m ={inch: 0.0000}inch");
+            }
+        }
     }
 }
