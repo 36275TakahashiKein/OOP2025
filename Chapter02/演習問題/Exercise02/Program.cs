@@ -13,7 +13,7 @@ namespace Exercise02 {
         //ヤードからメートルへと対応表を出力。
         static void PrintYardToMeterList(int yard) {
             double meter = YardConverter.ToYard(yard);
-            Console.WriteLine($"{yard}yd ={meter: 0.0000}m");
+            Console.WriteLine("変換後（メートル）：" + meter);
         }
     }
 }
