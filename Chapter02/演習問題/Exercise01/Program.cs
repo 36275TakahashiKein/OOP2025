@@ -15,7 +15,10 @@
 
         //2.1.4
         private static void printSongs(Song[] songs) {
-            
+            for (var i = 0; i < songs.Length; i++) {
+                TimeSpan duration = TimeSpan.FromSeconds(songs[i].Length);
+                Console.WriteLine($"{songs[i].Title}{songs[i].ArtistName}:{duration.Minutes:D1}:{duration.Seconds:D2}");
+            }
         }
     }
 }
