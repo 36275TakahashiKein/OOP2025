@@ -19,7 +19,7 @@ namespace Exercise01 {
                     break;
                 }
 
-                //アーティスト名を入力させる
+                //アーティスト名を入力させる。
                 Console.Write("アーティスト名：");
                 string artistName = Console.ReadLine();
 
