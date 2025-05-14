@@ -8,19 +8,19 @@ namespace Exercise01 {
     //2.1.1.
 
     public class Song {
-        public string Title { get; private set; } = string.Empty;
-        public string ArtistName { get; private set; } = string.Empty;
-        public int Length { get; private set; }
+        public string Title { get; set; } = string.Empty;
+        public string ArtistName { get; set; } = string.Empty;
+        public int Length { get; set; }
         //2.1.2
 
-        public Song(string title,string artistName,int length) {
-            this.Title = title;
-            this.ArtistName = artistName;
-            this.Length = length;
-        }
+        //public Song(string title,string artistName,int length) {
+        //    this.Title = title;
+        //    this.ArtistName = artistName;
+        //    this.Length = length;
+        //}
     }
 
-    
+
 
 
 }
