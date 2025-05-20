@@ -43,11 +43,19 @@ namespace Exercise02 {
         }
 
         private static void Exercise2_3(List<string> names) {
-
+            var ggg = names.Where(s => s.Contains('o'));
+            foreach (var name in ggg) {
+                Console.WriteLine(name);
+            }
         }
 
         private static void Exercise2_4(List<string> names) {
-            
+            var hhh = names
+                .Where(s => s.StartsWith('B'))
+                .Select(s => s.Length);
+            foreach (var name in hhh) {
+                Console.WriteLine(name);
+            }
         }
     }
 }
