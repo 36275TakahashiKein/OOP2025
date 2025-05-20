@@ -13,14 +13,14 @@
             };
 
 
-            var query = cities.Where(s => s.Length <= 5);    //- query変数に代入
+            var query = cities.Where(s => s.Length <= 5).ToArray();    //- query変数に代入【即時実行】
             foreach (var item in query) {
                 Console.WriteLine(item);
             }
             Console.WriteLine("------");
 
             cities[0] = "Osaka";            //- cities[0]を変更 
-            foreach (var item in query) {   //- 再度、queryの内容を取り出す【遅延実行】
+            foreach (var item in query) {   //- 再度、queryの内容を取り出す
                 Console.WriteLine(item);
             }
 
