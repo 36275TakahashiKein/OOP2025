@@ -39,7 +39,6 @@ namespace Exercise02 {
         private static void Exercise2_2(List<string> names) {
             var exist = names.Count(s => s.Contains('o'));
             Console.WriteLine(exist);
-
         }
 
         private static void Exercise2_3(List<string> names) {
