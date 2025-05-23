@@ -42,7 +42,7 @@ namespace Exercise01 {
 
         private static void Exercise2(List<string> langs) {
             Console.WriteLine();
-            var result = langs.Where(s => s.Contains('o'));
+            var result = langs.Where(s => s.Contains('S'));
             foreach (var lang in result) {
                 Console.WriteLine(lang);
             }
