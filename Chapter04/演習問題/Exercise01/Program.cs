@@ -16,15 +16,14 @@ namespace Exercise01 {
 
         //foreach文
         private static void Exercise1(List<string> langs) {
-            foreach (var item in langs) {
-                if (item.Contains('S')) {
-                    Console.WriteLine(item);
+            foreach (var lang in langs) {
+                if (lang.Contains('S')) {
+                    Console.WriteLine(lang);
                 }
             }
 
             //for文
             for (int i = 0; i < langs.Count; i++) {
-                Console.WriteLine(langs[i]);
                 if (langs[i].Contains('S'))
                     Console.WriteLine(langs[i]);
             }
@@ -36,7 +35,6 @@ namespace Exercise01 {
                     Console.WriteLine(langs[index]);
                 index++;
             }
-
         }
 
 
@@ -49,7 +47,8 @@ namespace Exercise01 {
         }
 
         private static void Exercise3(List<string> langs) {
-            throw new NotImplementedException();
+            var lang = langs.Find(s => s.Length == 11) ?? "unknown";
+            Console.WriteLine(lang);
         }
     }
 }
