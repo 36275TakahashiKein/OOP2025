@@ -31,7 +31,7 @@ namespace Exercise01 {
         }
 
         private static void Exercise3(int[] numbers) {
-            foreach (var strings in numbers.Select(n => n.ToString("000")).ToArray()) {
+            foreach (var strings in numbers.Select(n => n.ToString("000"))) {
                 Console.WriteLine(strings);
             }
         }
@@ -43,7 +43,7 @@ namespace Exercise01 {
         }
 
         private static void Exercise5(int[] numbers) {
-            var n = numbers.Distinct().ToList().Count(n => n > 10);
+            var n = numbers.Distinct().Count(n => n > 10);
             Console.WriteLine(n);
         }
     }
