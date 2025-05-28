@@ -1,4 +1,6 @@
 ﻿
+using System.ComponentModel.DataAnnotations;
+
 namespace Exercise02 {
     internal class Program {
         static void Main(string[] args) {
@@ -51,19 +53,28 @@ namespace Exercise02 {
         }
 
         private static void Exercise4(List<Book> books) {
-            throw new NotImplementedException();
+            var aa = books.Where(n => n.Price >= 4000).First();
+            Console.WriteLine(aa.Title);
         }
 
         private static void Exercise5(List<Book> books) {
-            throw new NotImplementedException();
+            var a = books.Where(n => n.Price < 4000);
+            Console.WriteLine(a.Max(n => n.Pages));
         }
 
         private static void Exercise6(List<Book> books) {
-            throw new NotImplementedException();
+            var k = books.Where(n => n.Pages >= 400).OrderBy(n => n.Price);
+            var kk = k.Reverse();
+            foreach (var item in kk) {
+                Console.WriteLine(item.Title + " : " + item.Price);
+            }
         }
 
         private static void Exercise7(List<Book> books) {
-            throw new NotImplementedException();
+            var ll = books.Where(n => n.Title.Contains("C#") && n.Pages < 500);
+            foreach (var item in ll) {
+                Console.WriteLine(item.Title);
+            }
         }
     }
 }
