@@ -47,8 +47,12 @@ namespace Exercise03 {
         }
 
         private static void Exercise5(string text) {
-           
-            
+            string[] word = text.Split(' ');
+            for (int i = 0; i < word.Length; i++) {
+                if (word[i].Length <= 4) {
+                    Console.WriteLine(word[i]);
+                }
+            }
         }
     }
 }
