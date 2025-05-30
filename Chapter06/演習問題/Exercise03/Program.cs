@@ -1,4 +1,6 @@
 ﻿
+using System.Diagnostics.Tracing;
+
 namespace Exercise03 {
     internal class Program {
         static void Main(string[] args) {
@@ -30,29 +32,27 @@ namespace Exercise03 {
             //string[] word = text.Split();
             //Console.Write("空白数：");
             //Console.WriteLine(word.Length - 1);
-            }
-   
+        }
+
 
         private static void Exercise2(string text) {
-            Console.WriteLine(text.Replace("big", "small")); 
+            Console.WriteLine(text.Replace("big", "small"));
         }
 
         private static void Exercise3(string text) {
-            
+            string[] word = text.Split(' ');
+
         }
 
         private static void Exercise4(string text) {
-            string[] word = text.Split();
-            Console.WriteLine(word.Length);
+            var count = text.Split(' ').Length;
+            Console.WriteLine("単語数:{0}", count);
         }
 
         private static void Exercise5(string text) {
-            string[] word = text.Split(' ');
-            for (int i = 0; i < word.Length; i++) {
-                if (word[i].Length <= 4) {
-                    Console.WriteLine(word[i]);
-                }
-            }
+            var words = text.Split(' ').Where(s => s.Length <= 4);
+            foreach (var word in words)
+                Console.WriteLine(word);
         }
     }
 }
