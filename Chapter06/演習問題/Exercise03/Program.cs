@@ -24,9 +24,12 @@ namespace Exercise03 {
         }
 
         private static void Exercise1(string text) {
-            string[] word = text.Split();
-            Console.Write("空白数：");
-            Console.WriteLine(word.Length - 1);
+            var spaces = text.Count(c => c == ' ');
+            //var spaces = text.Count(char.IsWhiteSpace);
+            Console.WriteLine("空白数:{0}", spaces);
+            //string[] word = text.Split();
+            //Console.Write("空白数：");
+            //Console.WriteLine(word.Length - 1);
             }
    
 
