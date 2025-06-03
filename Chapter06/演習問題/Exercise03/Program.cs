@@ -1,5 +1,6 @@
 ﻿
 using System.Diagnostics.Tracing;
+using System.Text;
 
 namespace Exercise03 {
     internal class Program {
@@ -40,8 +41,16 @@ namespace Exercise03 {
         }
 
         private static void Exercise3(string text) {
-            string[] word = text.Split(' ');
-
+            var array = text.Split(' ');
+            //StringBuilderを利用
+            var sb = new StringBuilder();
+            foreach (var word in array) {
+                sb.Append(word);
+                sb.Append(' ');
+            }
+            
+            var tex = sb.ToString().Trim();
+            Console.WriteLine(tex + '.');
         }
 
         private static void Exercise4(string text) {
