@@ -92,6 +92,11 @@ namespace Exercise03 {
                 Console.WriteLine($"{ch}:{array[ch - 'a']}");
             }
 
+            Console.WriteLine();//改行
+            for (char ch = 'a'; ch < 'z'; ch++) {
+                Console.WriteLine($"{ch}:{text.Count(tc => tc == ch)}");
+            }
+
         }
     }
 }
