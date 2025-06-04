@@ -80,6 +80,18 @@ namespace Exercise03 {
                 Console.WriteLine($"{item.Key}:{item.Value}");
             }
 
+            //***************************
+            //配列で集計
+            var array = Enumerable.Repeat(0, 26).ToArray();
+
+            foreach (var aiph in str) {
+                array[aiph - 'a']++;
+            }
+
+            for(char ch = 'a'; ch < 'z'; ch++) {
+                Console.WriteLine($"{ch}:{array[ch - 'a']}");
+            }
+
         }
     }
 }
