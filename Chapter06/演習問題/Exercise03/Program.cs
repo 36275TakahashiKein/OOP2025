@@ -1,4 +1,5 @@
 ﻿
+using System.Data.SqlTypes;
 using System.Diagnostics.Tracing;
 using System.Text;
 
@@ -51,7 +52,6 @@ namespace Exercise03 {
                 sb.Append(word);
                 sb.Append(' ');
             }
-
             var tex = sb.ToString().Trim();
             Console.WriteLine(tex + '.');
         }
@@ -68,24 +68,19 @@ namespace Exercise03 {
         }
 
         private static void Exercise6(string text) {
-            var a = "abcdefghijklmnopqrstuvwxyz";
-            var lowText = text.ToLower();
-            var b = new int[a.Length];
-            var count = 0;
+            var str = text.ToLower().Replace(" ", "");
 
-            for (int i = 0; i < a.Length; i++) {
-                count = 0;
-                for (int x = 0; x < lowText.Length; x++) {
-                    if (lowText[x] == a[i])
-                        count = count + 1;
-                }
-                b[i] = count;
+            var alphDicCount = Enumerable.Range('a', 26).ToDictionary(num => ((char)num).ToString(), num => 0);
+
+            foreach (var alph in str) {
+                alphDicCount[alph.ToString()]++;
             }
 
-            for (int i = 0; i < a.Length; i++) {
-                Console.WriteLine($"{a[i]}:{b[i]}");
+            foreach (var item in alphDicCount) {
+                Console.WriteLine($"{item.Key}:{item.Value}");
             }
 
         }
     }
 }
+
