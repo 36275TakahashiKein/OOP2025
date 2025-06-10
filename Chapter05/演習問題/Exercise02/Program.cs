@@ -45,13 +45,8 @@ namespace Exercise02 {
 
         // 5.2.4
         private static void Exercise4(YearMonth[] ymCollection) {
-            var ym = FindFirst21C(ymCollection);
-            if (ym is null) {
-                Console.WriteLine("21世紀のデータはありません");
-            } else {
-                Console.WriteLine(ym);
-            }
-
+            //null合体演算子
+            Console.WriteLine(FindFirst21C(ymCollection)?.ToString() ?? "21世紀のデータはありません" );
         }
 
         // 5.2.5
