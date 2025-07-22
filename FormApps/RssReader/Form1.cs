@@ -5,6 +5,7 @@ using System.Xml.Linq;
 
 namespace RssReader {
     public partial class Form1 : Form {
+        private List<string> selectionHistory = new List<string>();
 
         private List<ItemData> items;
         public Form1() {
@@ -30,8 +31,6 @@ namespace RssReader {
                             Title = (string?)x.Element("title"),
                             Link = (string?)x.Element("link"),
                         }).ToList();
-                
-
 
                 //リストボックスへタイトル表示
                 //lbTitles.DataSource = items;
@@ -44,14 +43,22 @@ namespace RssReader {
                 //    lbTitles.Items.Add(item.Title);
                 //}
 
-
             }
         }
 
 
         //タイトルを選択（クリック）したときに呼ばれるイベントハンドラ
         private void lbTitles_Click(object sender, EventArgs e) {
-             webView21.Source = new Uri(items[lbTitles.SelectedIndex].Link);
+            webView21.Source = new Uri(items[lbTitles.SelectedIndex].Link);
+            selectionHistory.Add(items[lbTitles.SelectedIndex].Link);
+        }
+
+        private void btGoBack_Click(object sender, EventArgs e) {
+            MessageBox.Show("ボタンがクリックされました！");
+            webView21.Source = new Uri(selectionHistory[0]);
+        }
+
+        private void btGoForward_Click(object sender, EventArgs e) {
 
         }
     }
