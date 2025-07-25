@@ -23,27 +23,22 @@
         ///  the contents of this method with the code editor.
         /// </summary>
         private void InitializeComponent() {
-            tbUrl = new TextBox();
             btRssGet = new Button();
             lbTitles = new ListBox();
-            webView21 = new Microsoft.Web.WebView2.WinForms.WebView2();
+            wvRssLink = new Microsoft.Web.WebView2.WinForms.WebView2();
             btGoForward = new Button();
             btGoBack = new Button();
-            ((System.ComponentModel.ISupportInitialize)webView21).BeginInit();
+            cbUrl = new ComboBox();
+            btFavorite = new Button();
+            tbSource = new TextBox();
+            button1 = new Button();
+            ((System.ComponentModel.ISupportInitialize)wvRssLink).BeginInit();
             SuspendLayout();
-            // 
-            // tbUrl
-            // 
-            tbUrl.Font = new Font("Yu Gothic UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 128);
-            tbUrl.Location = new Point(184, 14);
-            tbUrl.Name = "tbUrl";
-            tbUrl.Size = new Size(429, 33);
-            tbUrl.TabIndex = 0;
             // 
             // btRssGet
             // 
             btRssGet.Font = new Font("Yu Gothic UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 128);
-            btRssGet.Location = new Point(629, 8);
+            btRssGet.Location = new Point(697, 13);
             btRssGet.Name = "btRssGet";
             btRssGet.Size = new Size(110, 44);
             btRssGet.TabIndex = 1;
@@ -63,21 +58,22 @@
             lbTitles.TabIndex = 2;
             lbTitles.Click += lbTitles_Click;
             // 
-            // webView21
+            // wvRssLink
             // 
-            webView21.AllowExternalDrop = true;
-            webView21.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            webView21.CreationProperties = null;
-            webView21.DefaultBackgroundColor = Color.White;
-            webView21.Location = new Point(14, 356);
-            webView21.Name = "webView21";
-            webView21.Size = new Size(813, 268);
-            webView21.TabIndex = 3;
-            webView21.ZoomFactor = 1D;
+            wvRssLink.AllowExternalDrop = true;
+            wvRssLink.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            wvRssLink.CreationProperties = null;
+            wvRssLink.DefaultBackgroundColor = Color.White;
+            wvRssLink.Location = new Point(14, 356);
+            wvRssLink.Name = "wvRssLink";
+            wvRssLink.Size = new Size(813, 268);
+            wvRssLink.TabIndex = 3;
+            wvRssLink.ZoomFactor = 1D;
+            wvRssLink.SourceChanged += webView21_SourceChanged;
             // 
             // btGoForward
             // 
-            btGoForward.Location = new Point(93, 12);
+            btGoForward.Location = new Point(93, 13);
             btGoForward.Name = "btGoForward";
             btGoForward.Size = new Size(74, 40);
             btGoForward.TabIndex = 4;
@@ -95,31 +91,71 @@
             btGoBack.UseVisualStyleBackColor = true;
             btGoBack.Click += btGoBack_Click;
             // 
+            // cbUrl
+            // 
+            cbUrl.FormattingEnabled = true;
+            cbUrl.Location = new Point(183, 23);
+            cbUrl.Name = "cbUrl";
+            cbUrl.Size = new Size(431, 23);
+            cbUrl.TabIndex = 6;
+            // 
+            // btFavorite
+            // 
+            btFavorite.Location = new Point(626, 14);
+            btFavorite.Name = "btFavorite";
+            btFavorite.Size = new Size(65, 36);
+            btFavorite.TabIndex = 7;
+            btFavorite.Text = "★";
+            btFavorite.UseVisualStyleBackColor = true;
+            btFavorite.Click += btFavorite_Click;
+            // 
+            // tbSource
+            // 
+            tbSource.Location = new Point(401, 66);
+            tbSource.Name = "tbSource";
+            tbSource.Size = new Size(264, 23);
+            tbSource.TabIndex = 8;
+            // 
+            // button1
+            // 
+            button1.Location = new Point(199, 59);
+            button1.Name = "button1";
+            button1.Size = new Size(77, 35);
+            button1.TabIndex = 9;
+            button1.Text = "button1";
+            button1.UseVisualStyleBackColor = true;
+            button1.Click += button1_Click;
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(867, 636);
+            Controls.Add(button1);
+            Controls.Add(tbSource);
+            Controls.Add(btFavorite);
+            Controls.Add(cbUrl);
             Controls.Add(btGoBack);
             Controls.Add(btGoForward);
-            Controls.Add(webView21);
+            Controls.Add(wvRssLink);
             Controls.Add(lbTitles);
             Controls.Add(btRssGet);
-            Controls.Add(tbUrl);
             Name = "Form1";
             Text = "RSSリーダー";
-            ((System.ComponentModel.ISupportInitialize)webView21).EndInit();
+            ((System.ComponentModel.ISupportInitialize)wvRssLink).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
 
         #endregion
-
-        private TextBox tbUrl;
         private Button btRssGet;
         private ListBox lbTitles;
-        private Microsoft.Web.WebView2.WinForms.WebView2 webView21;
+        private Microsoft.Web.WebView2.WinForms.WebView2 wvRssLink;
         private Button btGoForward;
         private Button btGoBack;
+        private ComboBox cbUrl;
+        private Button btFavorite;
+        private TextBox tbSource;
+        private Button button1;
     }
 }
