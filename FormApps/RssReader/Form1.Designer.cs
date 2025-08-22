@@ -38,9 +38,9 @@
             // btRssGet
             // 
             btRssGet.Font = new Font("Yu Gothic UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 128);
-            btRssGet.Location = new Point(697, 13);
+            btRssGet.Location = new Point(727, 14);
             btRssGet.Name = "btRssGet";
-            btRssGet.Size = new Size(110, 44);
+            btRssGet.Size = new Size(100, 37);
             btRssGet.TabIndex = 1;
             btRssGet.Text = "取得";
             btRssGet.UseVisualStyleBackColor = true;
@@ -54,7 +54,7 @@
             lbTitles.ItemHeight = 21;
             lbTitles.Location = new Point(14, 100);
             lbTitles.Name = "lbTitles";
-            lbTitles.Size = new Size(813, 214);
+            lbTitles.Size = new Size(813, 172);
             lbTitles.TabIndex = 2;
             lbTitles.Click += lbTitles_Click;
             // 
@@ -73,9 +73,9 @@
             // 
             // btGoForward
             // 
-            btGoForward.Location = new Point(93, 13);
+            btGoForward.Location = new Point(93, 14);
             btGoForward.Name = "btGoForward";
-            btGoForward.Size = new Size(74, 40);
+            btGoForward.Size = new Size(74, 37);
             btGoForward.TabIndex = 4;
             btGoForward.Text = "進む";
             btGoForward.UseVisualStyleBackColor = true;
@@ -83,9 +83,9 @@
             // 
             // btGoBack
             // 
-            btGoBack.Location = new Point(12, 12);
+            btGoBack.Location = new Point(12, 14);
             btGoBack.Name = "btGoBack";
-            btGoBack.Size = new Size(75, 40);
+            btGoBack.Size = new Size(75, 37);
             btGoBack.TabIndex = 5;
             btGoBack.Text = "戻る";
             btGoBack.UseVisualStyleBackColor = true;
@@ -101,9 +101,9 @@
             // 
             // btFavorite
             // 
-            btFavorite.Location = new Point(626, 14);
+            btFavorite.Location = new Point(656, 14);
             btFavorite.Name = "btFavorite";
-            btFavorite.Size = new Size(65, 36);
+            btFavorite.Size = new Size(65, 37);
             btFavorite.TabIndex = 7;
             btFavorite.Text = "★";
             btFavorite.UseVisualStyleBackColor = true;
@@ -111,14 +111,14 @@
             // 
             // tbSource
             // 
-            tbSource.Location = new Point(401, 66);
+            tbSource.Location = new Point(183, 52);
             tbSource.Name = "tbSource";
-            tbSource.Size = new Size(264, 23);
+            tbSource.Size = new Size(431, 23);
             tbSource.TabIndex = 8;
             // 
             // button1
             // 
-            button1.Location = new Point(199, 59);
+            button1.Location = new Point(70, 300);
             button1.Name = "button1";
             button1.Size = new Size(77, 35);
             button1.TabIndex = 9;
