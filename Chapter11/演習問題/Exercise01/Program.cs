@@ -15,7 +15,7 @@ namespace Exercise01 {
         }
 
         private static bool IsPhoneNumber(string telNum) {
-            return Regex.IsMatch(telNum, @"^(080|090)-9111-1234$");
+            return Regex.IsMatch(telNum, @"^0[7-9]0-\d{4}-\d{4}$");
         }
     }
 }
