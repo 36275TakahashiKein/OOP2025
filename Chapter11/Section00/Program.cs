@@ -1,4 +1,5 @@
-﻿using System.Text.RegularExpressions;
+﻿using System.Collections.Generic;
+using System.Text.RegularExpressions;
 
 namespace Section00 {
     internal class Program {
@@ -205,7 +206,7 @@ namespace Section00 {
 
             //-----⑨-----
             /*  string filePath = "sample.txt";
-                Pickup3DightNumber(filePath);
+                Pickup3DightNumber(filePath);                               
             }
 
             private static void Pickup3DightNumber(string filePath) {
@@ -234,18 +235,87 @@ namespace Section00 {
             */
             //命題
             //「テキストファイルを読み込み、3文字以上の数字だけからなる部分文字列をすべて抜き出すコードを書いてください。」
+
             //「@"\b\d{3,}\b"」で「3文字以上の数字だけからなる部分文字列をすべて抜き出す」をしている。
-            //「\b」
-            //「\d」
-            //「{3,n}」
+            //「\b」は「英数字とそれ以外の文字の境界を表す。」
+            //「\d」は「0から9までの数字一文字と一致するか。」
+            //「{3,}」は「直前の要素の3回以上の繰り返しに一致するか。」
+
+            //「"\b\d{3,}\b"」のところを、「"\b\d{3,}"」と記入した場合、
+            //実行結果に「890M」「Index=26,Length=3,Value=890」も入ってしまう。
 
             /*秀丸
             「Ctrl + F」 →　正規表現
             「\y\d{ 3,}\y」で検索。
             →でいろいろ検索。*/
 
-            //やること「⑨」「⑩はExercise03」、「⑪はSection3の追加メソッド」
+            //-----⑩-----
+            /*using System.Text.RegularExpressions;
 
+            namespace Exercise03 {
+                internal class Program {
+                    static void Main(string[] args) {
+                        string[] texts = [
+                            "Time is money.",
+                            "What time is it?",
+                            "It will take time.",
+                            "We reorganized the timetable.",
+                            ];
+                            foreach (var line in texts) {
+                                var matches = Regex.Matches(line, @"\btime\b", RegexOptions.IgnoreCase);//RegexOptions.IgnoreCaseで大文字小文字区別しなくなる
+                                foreach (Match match2 in matches) {
+                                    Console.WriteLine($"{line},{match2.Index}");//結果を出力
+                            }
+                        }
+                    }
+                }
+            }*/
+            //-----⑩終わり-----
+
+            //「\b」で、英数字とそれ以外の文字の境界を表す。
+            //「RegexOptions.IgnoreCase」で、大文字小文字区別しなくなる。
+
+            //命題
+            //「以下の文字列配列から、単語"time"が含まれる文字列を取り出し、timeの開始位置をすべて出力してください。
+            //大文字/小文字の区分なく検索してください」            
+
+            /*実行結果
+            Time is money.,0
+            What time is it?,5
+            It will take time.,13*/
+
+            //-----⑪-----
+            /*using System.Text.RegularExpressions;
+
+            namespace Section03 {
+                internal class Program {
+                    static void Main(string[] args) {
+
+                        var text2 = "private List<string> result = new list<string>();";
+
+                        var matches2 = Regex.Matches(text2, @"\b[a-z]+\b")
+                                        .Cast<Match>()
+                                        .OrderBy(x => x.Length);
+
+                        foreach (Match match3 in matches2) {
+                            Console.WriteLine($"Index={match3.Index},Length={match3.Length},Value={match3.Value}");//結果を出力)
+                        }
+                    }
+                }
+            }*/
+            //-----⑪終わり-----
+
+            //小文字のみで構成された単語を文字数の長さで昇順にソートして出力するプログラム。
+            //「[a-z]+」で1文字以上の小文字英字の並び。
+            //「\b」で単語の区切りを意味する。
+            
+            /*実行結果
+            Index=30,Length=3,Value=new
+            Index = 34,Length = 4,Value = list
+            Index = 13,Length = 6,Value = string
+            Index = 21,Length = 6,Value = result
+            Index = 39,Length = 6,Value = string
+            Index = 0,Length = 7,Value =private。*/
 
         }
     }
