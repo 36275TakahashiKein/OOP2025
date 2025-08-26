@@ -8,14 +8,15 @@ namespace Section00 {
 
         static void Main(string[] args) {
 
+            #region
             //-----①-----
-            var text = "orivate List<string> results = new List<string>();";
+            /*var text = "orivate List<string> results = new List<string>();";
 
             bool isMatch = Regex.IsMatch(text, @"List<\w+>");
             if (isMatch)
                 Console.WriteLine("見つかりました");
             else
-                Console.WriteLine("見つかりません");
+                Console.WriteLine("見つかりません");*/
             //-----①終わり-----
 
             //var text = "orivate List<string> results = new List<string>();";
@@ -24,7 +25,7 @@ namespace Section00 {
             //                      　  に文字無いと「"見つかりません"」に判定される。
 
             //もう一つの書き方として②のパターンがある。
-
+            #endregion
             //-----②-----
             //var text = "orivate List<string> results = new List<string>();";
 
@@ -308,7 +309,7 @@ namespace Section00 {
             //小文字のみで構成された単語を文字数の長さで昇順にソートして出力するプログラム。
             //「[a-z]+」で1文字以上の小文字英字の並び。
             //「\b」で単語の区切りを意味する。
-            
+
             /*実行結果
             Index=30,Length=3,Value=new
             Index = 34,Length = 4,Value = list
@@ -316,6 +317,80 @@ namespace Section00 {
             Index = 21,Length = 6,Value = result
             Index = 39,Length = 6,Value = string
             Index = 0,Length = 7,Value =private。*/
+
+            //-----⑫-----
+            /*var text = "C#の学習をすこしずつ進めていこう。";
+            var pattern = @"少しづつ|すこしづつ|すこしずつ";
+            var replaced = Regex.Replace(text, pattern, "少しずつ");
+            Console.WriteLine(replaced);*/
+            //-----⑫終わり-----
+
+            //「すこしずつ」を「少しずつ」に変えてる。
+
+            /*実行結果
+            C#の学習を少しずつ進めていこう。*/
+
+            //-----⑬-----
+            /*var text = "Word, Excel ,PowerPoint , Outlook,OneDrive";
+            var pattern = @"\s*,\s*";
+            var replaced = Regex.Replace(text, pattern, ", ");
+            Console.WriteLine(replaced);*/
+            //-----⑬-----
+
+            //「\s」は、「空白文字、タブコード、改行コードと1文字と一致する」。
+            //「*」は、「直前の要素の0回以上の繰り返しと一致する」。
+            //空白文字を消してるプログラム。
+
+            /*実行結果
+            Word, Excel, PowerPoint, Outlook, OneDrive*/
+
+            //-----⑭-----
+            /*using System.Text.RegularExpressions;
+            using System;
+
+            namespace Exercise04 {
+                internal class Program {
+                    static void Main(string[] args) {
+
+                        var lines = File.ReadAllLines("sample.txt");
+
+                        var aaa = @"version\s*=\s*""v4.0""";
+                        var bbb = "version=\"v5.0\"";
+
+                        var newlines = lines.Select(s => Regex.Replace(s, aaa, bbb, RegexOptions.IgnoreCase));
+
+                        File.WriteAllLines("sampleChange.txt", newlines);
+
+                        //これ以降は確認用
+                        var text = File.ReadAllText("sampleChange.txt");
+                        Console.WriteLine(text);
+                    }
+                }
+            }*/
+
+            //-----⑭終わり-----
+            //自力（少し間違っている）
+
+            //-----⑮-----
+            /*using System.Text.RegularExpressions;
+            using System;
+
+namespace Exercise04 {
+        internal class Program {
+            static void Main(string[] args) {
+
+                var lines = File.ReadAllLines("sample.txt");
+
+                var newlines = lines.Select(s => Regex.Replace(s, @"\bversion\s*=\s*""v4\.0""", @"version=""v5.0""", RegexOptions.IgnoreCase));
+
+                File.WriteAllLines("sampleChange.txt", newlines);
+
+                //これ以降は確認用
+                var text = File.ReadAllText("sampleChange.txt");
+                Console.WriteLine(text);
+            }
+        }
+    }*/
 
         }
     }
