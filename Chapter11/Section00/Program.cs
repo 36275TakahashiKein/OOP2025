@@ -427,6 +427,12 @@ namespace Exercise04 {
  */
             //-----⑯終わり-----
 
+            //-----⑰-----
+            /*< Grid >
+            </ Grid >
+            </ Window >*/
+            //XMAL　ザムル
+
         }
     }
 }
