@@ -12,6 +12,9 @@
             <ColumnDefinition Width="*"/>
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
+
+        <Label x:Name="colorArea" Margin="10" Background="Black"/>
+
         <Grid Grid.Column="1">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*"/>
@@ -24,15 +27,60 @@
                 <RowDefinition Height="*"/>
                 <RowDefinition Height="*"/>
             </Grid.RowDefinitions>
-            <!--start-->
+
+            <TextBlock x:Name="R" Text="R"
+                       Grid.Column="0" Grid.Row="0" FontSize="30"
+                       HorizontalAlignment="Center" VerticalAlignment="Center"/>
+            <TextBlock x:Name="G" Text="G"
+                       Grid.Column="0" Grid.Row="1"  FontSize="30"
+                       HorizontalAlignment="Center" VerticalAlignment="Center"/>
+            <TextBlock x:Name="B" Text="B" 
+                       Grid.Column="0" Grid.Row="2"  FontSize="30"
+                       HorizontalAlignment="Center" VerticalAlignment="Center"/>
+
+            <Slider x:Name="rSlider" 
+                    Minimum="0" Maximum="255" 
+                    Grid.Column="1" Grid.Row="0" VerticalAlignment="Center" 
+                    ValueChanged="Slider_ValueChanged"/>
+            <Slider x:Name="gSlider" 
+                    Minimum="0" Maximum="255"
+                    Grid.Column="1" Grid.Row="1" VerticalAlignment="Center"
+                    ValueChanged="Slider_ValueChanged"/>
+            <Slider x:Name="bSlider"
+                    Minimum="0" Maximum="255"
+                    Grid.Column="1" Grid.Row="2" VerticalAlignment="Center"
+                    ValueChanged="Slider_ValueChanged"/>
+
+            <TextBox x:Name="rValue" 
+                     Text="{Binding ElementName=rSlider,Path=Value,
+                            UpdateSourceTrigger=PropertyChanged,StringFormat={}{0:0}}"
+                     Grid.Row="0" Grid.Column="2" FontSize="15" TextAlignment="Right"
+                     VerticalAlignment="Center"/>
+
+            <TextBox x:Name="gValue"
+                     Text="{Binding ElementName=gSlider,Path=Value,
+                     UpdateSourceTrigger=PropertyChanged,StringFormat={}{0:0}}"
+                     Grid.Row="1" Grid.Column="2" FontSize="15" TextAlignment="Right"
+                     VerticalAlignment="Center"/>
+
+            <TextBox x:Name="bValue"
+                     Text="{Binding ElementName=bSlider,Path=Value,
+                     UpdateSourceTrigger=PropertyChanged,StringFormat={}{0:0}}"
+                     Grid.Row="2" Grid.Column="2" FontSize="15" TextAlignment="Right"
+                     VerticalAlignment="Center"/>
+
+            <ComboBox Grid.Row="3" VerticalAlignment="Center" Grid.ColumnSpan="3" Margin="23,0,23,0"/>
+
         </Grid>
         <Grid Grid.Column="2">
             <Grid.RowDefinitions>
                 <RowDefinition Height="*"/>
                 <RowDefinition Height="5*"/>
             </Grid.RowDefinitions>
-            <!--start-->
+            <Button Content="STOCK"
+                    Grid.Column="0" Grid.Row="0" FontSize="15" Margin="10" 
+                    VerticalAlignment="Center"/>
+            <ListBox Grid.Row="1" Margin="10"/>
         </Grid>
-        <!--start-->
     </Grid>
 </Window>
