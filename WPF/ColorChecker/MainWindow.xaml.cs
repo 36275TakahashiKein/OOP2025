@@ -49,5 +49,16 @@ namespace ColorChecker {
             gSlider.Value = color.G;
             bSlider.Value = color.B;
         }
+
+        private void Button_Click(object sender, RoutedEventArgs e) {
+            byte rValue = (byte)rSlider.Value;
+            byte gValue = (byte)gSlider.Value;
+            byte bValue = (byte)bSlider.Value;
+
+            string colorText = $"R: {rValue}, G: {gValue}, B: {bValue}";
+
+            colorList.Items.Add(colorText);
+
+        }
     }
 }

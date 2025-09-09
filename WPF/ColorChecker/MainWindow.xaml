@@ -93,8 +93,10 @@
             </Grid.RowDefinitions>
             <Button Content="STOCK"
                     Grid.Column="0" Grid.Row="0" FontSize="15" Margin="10" 
-                    VerticalAlignment="Center"/>
-            <ListBox Grid.Row="1" Margin="10"/>
+                    VerticalAlignment="Center" Click="Button_Click"/>
+            <ListBox x:Name="colorList" Grid.Row="1" Margin="10">
+                
+            </ListBox>
         </Grid>
     </Grid>
 </Window>
