@@ -69,7 +69,21 @@
                      Grid.Row="2" Grid.Column="2" FontSize="15" TextAlignment="Right"
                      VerticalAlignment="Center"/>
 
-            <ComboBox Grid.Row="3" VerticalAlignment="Center" Grid.ColumnSpan="3" Margin="23,0,23,0"/>
+            <ComboBox x:Name="colorSelectComboBox" ItemsSource="{Binding}" SelectedValue="{Binding Color}" Grid.Row="3" Margin="23,0,23,0" VerticalAlignment="Center" Grid.ColumnSpan="3" 
+                      SelectionChanged="colorSelectComboBox_SelectionChanged">
+                <ComboBox.ItemTemplate>
+                    <DataTemplate>
+                        <StackPanel Orientation="Horizontal">
+                            <Border Width="20" Height="Auto" Margin="5,0" BorderThickness="1" BorderBrush="Black"  >
+                                <Border.Background>
+                                    <SolidColorBrush Color="{Binding Color}"/>
+                                </Border.Background>
+                            </Border>
+                            <TextBlock Text="{Binding Name}"></TextBlock>
+                        </StackPanel>
+                    </DataTemplate>
+                </ComboBox.ItemTemplate>
+            </ComboBox>
 
         </Grid>
         <Grid Grid.Column="2">
