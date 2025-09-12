@@ -35,14 +35,33 @@ namespace ColorChecker {
         }
 
         private void Slider_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e) {
-            colorArea.Background = new SolidColorBrush(Color.FromRgb((byte)rSlider.Value, (byte)gSlider.Value, (byte)bSlider.Value));
+            var newColor = Color.FromRgb((byte)rSlider.Value, (byte)gSlider.Value, (byte)bSlider.Value);
+            colorArea.Background = new SolidColorBrush(newColor);
+
+            var colorList = (MyColor[])DataContext;
+            int i = Array.FindIndex(colorList, c => c.Color.Equals(newColor));
+
+            if (i != -1) {
+                currentColor = colorList[i]; // currentColor を更新
+                colorSelectComboBox.SelectedIndex = i;
+            } else {
+                currentColor = new MyColor() { Color = newColor, Name = $"R: {newColor.R}, G: {newColor.G}, B: {newColor.B}" };
+                colorSelectComboBox.SelectedIndex = -1; // 対応色がなければ選択解除
+            }
+
+
         }
 
 
         //コンボボックスから色を選択
         private void colorSelectComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e) {
-            var comboSelectMyColor = (MyColor)((ComboBox)sender).SelectedItem;
-            setSliderValue(comboSelectMyColor.Color);
+            var cb = (ComboBox)sender;
+
+            if (((ComboBox)sender).SelectedIndex == -1) return;
+
+            var comboSelectMyColor = ((MyColor)((ComboBox)sender).SelectedItem).Color;
+            currentColor = (MyColor)((ComboBox)sender).SelectedItem;
+            setSliderValue(comboSelectMyColor);
         }
 
         //各スライダーの値を設定する
