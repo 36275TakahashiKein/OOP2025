@@ -16,7 +16,7 @@ using System.Reflection;
 
 namespace ColorChecker {
 
-    public struct MyColor {
+    public class MyColor {
         public Color Color { get; set; }
         public string Name { get; set; }
         public override string ToString() {
