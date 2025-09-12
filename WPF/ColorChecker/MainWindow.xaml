@@ -56,13 +56,11 @@
                             UpdateSourceTrigger=PropertyChanged,StringFormat={}{0:0}}"
                      Grid.Row="0" Grid.Column="2" FontSize="15" TextAlignment="Right"
                      VerticalAlignment="Center"/>
-
             <TextBox x:Name="gValue"
                      Text="{Binding ElementName=gSlider,Path=Value,
                      UpdateSourceTrigger=PropertyChanged,StringFormat={}{0:0}}"
                      Grid.Row="1" Grid.Column="2" FontSize="15" TextAlignment="Right"
                      VerticalAlignment="Center"/>
-
             <TextBox x:Name="bValue"
                      Text="{Binding ElementName=bSlider,Path=Value,
                      UpdateSourceTrigger=PropertyChanged,StringFormat={}{0:0}}"
@@ -84,8 +82,8 @@
                     </DataTemplate>
                 </ComboBox.ItemTemplate>
             </ComboBox>
-
         </Grid>
+        
         <Grid Grid.Column="2">
             <Grid.RowDefinitions>
                 <RowDefinition Height="*"/>
@@ -94,9 +92,7 @@
             <Button Content="STOCK"
                     Grid.Column="0" Grid.Row="0" FontSize="15" Margin="10" 
                     VerticalAlignment="Center" Click="Button_Click"/>
-            <ListBox x:Name="colorList" Grid.Row="1" Margin="10" SelectionChanged="colorList_SelectionChanged">
-                
-            </ListBox>
+            <ListBox x:Name="colorList" Grid.Row="1" Margin="10" SelectionChanged="colorList_SelectionChanged"/>
         </Grid>
     </Grid>
 </Window>
