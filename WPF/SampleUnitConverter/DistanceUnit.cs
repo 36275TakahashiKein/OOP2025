@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace SampleUnitConverter {
     class DistanceUnit {
-        public string Name { get; set; }
+        public required string Name { get; set; }
         public double Coefficient { get; set; }
         public override string ToString() {
             return Name;

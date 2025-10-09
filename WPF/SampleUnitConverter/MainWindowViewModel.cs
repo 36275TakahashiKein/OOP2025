@@ -4,30 +4,41 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
+using Prism.Mvvm;
+using Prism.Commands;
 
 namespace SampleUnitConverter {
-    internal class MainWindowViewModel : ViewModel {
+    internal class MainWindowViewModel : BindableBase {
 
         //フィールド
-        private double metricValue;
-        private double imperialValue;
+        private double metricValue = 0;
+        private double imperialValue = 0;
+
+        private MetricUnit currentMetricUnit;
+        private ImperialUnit currentImperialUnit;
 
         //▲で呼ばれるコマンド
-        public ICommand ImperialUnitToMetric { get; private set; }
+        public DelegateCommand ImperialUnitToMetric { get; }
         //▲で呼ばれるコマンド
-        public ICommand MetricToImperialUnit { get; private set; }
+        public DelegateCommand MetricToImperialUnit { get; }
 
         //上のComboBoxで選択されている値
-        public MetricUnit CurrentMetricUnit { get; set; }
+        public MetricUnit CurrentMetricUnit {
+            get => currentMetricUnit;
+            set => SetProperty(ref currentMetricUnit, value);
+        }
         //下のComboBoxで選択されている値
-        public ImperialUnit CurrentImperialUnit { get; set; }
+        public ImperialUnit CurrentImperialUnit {
+            get => currentImperialUnit;
+            set => SetProperty(ref currentImperialUnit, value);
+        }
         //プロパティ
 
         public double MetricValue {
             get => metricValue;
             set {
                 this.metricValue = value;
-                this.OnPropertyChanged();
+                this.SetProperty(ref metricValue, value);
             }
         }
 
@@ -35,7 +46,7 @@ namespace SampleUnitConverter {
             get => imperialValue;
             set {
                 this.imperialValue = value;
-                this.OnPropertyChanged();
+                this.SetProperty(ref imperialValue, value);
             }
         }
 
