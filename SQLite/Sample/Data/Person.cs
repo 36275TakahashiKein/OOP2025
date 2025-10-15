@@ -13,10 +13,14 @@ namespace Sample.Data {
         /// <summary>
         /// 名前
         /// </summary>
-        public string Name { get; set; }
+        public string Name { get; set; } = string.Empty;
         /// <summary>
         /// 電話番号
         /// </summary>
-        public string Phone { get; set; }
+        public string Phone { get; set; } = string.Empty;
+
+        /*public override string ToString() {
+            return $"{Id} {Name} {Phone}";
+        }*/
     }
 }

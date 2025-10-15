@@ -1,5 +1,6 @@
 ﻿using Sample.Data;
 using SQLite;
+using System.Collections.ObjectModel;
 using System.Text;
 using System.Windows;
 using System.Windows.Controls;
@@ -16,12 +17,29 @@ namespace Sample;
 /// <summary>
 /// Interaction logic for MainWindow.xaml
 /// </summary>
-public partial class MainWindow : Window
-{
-    public MainWindow()
-    {
+public partial class MainWindow : Window {
+    private ObservableCollection<Person> _persons = new ObservableCollection<Person>();
+
+    public MainWindow() {
         InitializeComponent();
+        //ReadDatabase();
+        _persons.Add(new Person { Id = 1, Name = "aaaaa", Phone = "123456" });
+        PersonListView.ItemsSource = _persons;
+
+
     }
+
+    private void ReadDatabase() {
+        using (var connection = new SQLiteConnection(App.databasePath)) {
+            connection.CreateTable<Person>();
+            //_persons = connection.Table<Person>().ToList();
+
+        }
+    }
+
+
+    
+
 
     private void SaveButton_Click(object sender, RoutedEventArgs e) {
         var person = new Person() {
@@ -29,12 +47,14 @@ public partial class MainWindow : Window
             Phone = PhoneTextBox.Text,
         };
 
-        string databaseName = "Persons.db";
-        string folderPath = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
-        string databasePath = System.IO.Path.Combine(folderPath, databaseName);
-        using(var connection = new SQLiteConnection(databasePath)) {
+        using (var connection = new SQLiteConnection(App.databasePath)) {
             connection.CreateTable<Person>();
             connection.Insert(person);
         }
+    }
+
+    private void ReadButton_Click(object sender, RoutedEventArgs e) {
+        _persons.Add(new Person { Id = 1, Name = "bbbbbb", Phone = "909099" });
+
     }
 }
