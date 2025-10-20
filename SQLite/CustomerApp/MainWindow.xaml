@@ -7,25 +7,31 @@
         mc:Ignorable="d"
         Title="顧客管理" Height="450" Width="800">
     <Grid>
-        <Grid>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="*"/>
-            <ColumnDefinition Width="*"/>
-        </Grid.ColumnDefinitions>
+        <Grid Grid.Row="0">
 
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="100"/>
+                <ColumnDefinition Width="700"/>
+            </Grid.ColumnDefinitions>
             <Grid.RowDefinitions>
-                <RowDefinition Height="*"/>
-                <RowDefinition Height="*"/>
-                <RowDefinition Height="*"/>
-                <RowDefinition Height="*"/>
-                <RowDefinition Height="*"/>
-                <RowDefinition Height="*"/>
-                <RowDefinition Height="*"/>
-                <RowDefinition Height="*"/>
+                <RowDefinition Height="30"/>
+                <RowDefinition Height="30"/>
+                <RowDefinition Height="30"/>
+                <RowDefinition Height="60"/>
             </Grid.RowDefinitions>
-
-            <Label Name="名前" Grid.Column="0" Grid.Row="0" FontSize="30"/>
+            <Label Content="名前" FontSize="15" Grid.Row="0" Grid.Column="0"/>
+            <Label Content="電話番号" FontSize="15" Grid.Row="1" Grid.Column="0"/>
+            <Label Content="住所" FontSize="15" Grid.Row="2" Grid.Column="0"/>
+            <TextBox x:Name="NameTextBox" Grid.Row="0" Grid.Column="1" Margin="2"/>
+            <TextBox x:Name="PhoneTextBox" Grid.Row="1" Grid.Column="1" Margin="2"/>
+            <TextBox x:Name="JyushoTextBox" Grid.Row="2" Grid.Column="1" Margin="2"/>
+            <Button Content="Button" HorizontalAlignment="Center" Grid.Row="3" VerticalAlignment="Center" RenderTransformOrigin="-0.126,-0.349" Height="60" Width="100"/>
+            <StackPanel Grid.Column="1" Grid.Row="3" Margin="2"/>
         </Grid>
+
+
+
+
 
     </Grid>
 </Window>
