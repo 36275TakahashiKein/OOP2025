@@ -1,4 +1,5 @@
 ﻿using CustomerApp.Data;
+using Microsoft.Win32;
 using SQLite;
 using System.Text;
 using System.Windows;
@@ -22,6 +23,14 @@ public partial class MainWindow : Window {
         InitializeComponent();
         ReadDatabase();
         CustomerListView.ItemsSource = _customers;
+
+        OpenFileDialog ofd = new OpenFileDialog();
+        var ret = ofd.ShowDialog();
+        if (ret ?? false) {
+
+        }
+
+
     }
     private void ReadDatabase() {
         using (var connection = new SQLiteConnection(App.databasePath)) {
@@ -43,16 +52,19 @@ public partial class MainWindow : Window {
 
         if (result == true) {
             var imagePath = openFileDialog.FileName;
-            byte[] imageBytes = System.IO.File.ReadAllBytes(imagePath);
-            customer.Picture = imageBytes; // 画像をbyte[]として保存
-        }
 
+            // 画像をbyte[]として保存
+            byte[] imageBytes = System.IO.File.ReadAllBytes(imagePath);
+            customer.Picture = imageBytes;
+        }
 
         using (var connection = new SQLiteConnection(App.databasePath)) {
             connection.CreateTable<Customer>();
             connection.Insert(customer);
         }
     }
+
+
 
     private void ReadButton_Click(object sender, RoutedEventArgs e) {
         ReadDatabase();
@@ -109,6 +121,24 @@ public partial class MainWindow : Window {
         ReadDatabase();
         CustomerListView.ItemsSource = _customers;
     }
+
+    private void ImageButton_Click(object sender, RoutedEventArgs e) {
+        OpenFileDialog openFileDialog = new OpenFileDialog();
+        openFileDialog.Filter = "Image Files|*.jpg;*.jpeg;*.png;*.bmp;*.gif";
+
+        bool? result = openFileDialog.ShowDialog();
+
+        if (result == true) {
+            string filePath = openFileDialog.FileName;
+
+            // StackPanel 内の Image コントロールに画像を設定
+            CustomerImage.Source = new BitmapImage(new Uri(filePath));
+        }
+    }
+
+
+
+
 
 }
 
