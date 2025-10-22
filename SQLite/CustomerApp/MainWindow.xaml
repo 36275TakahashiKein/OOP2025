@@ -45,14 +45,12 @@
                         <TextBlock Text="{Binding Id}"/>
                         <TextBlock Text="{Binding Name}" FontSize="20"/>
                         <TextBlock Text="{Binding Phone}" Foreground="Blue"/>
-
-                        <!-- 画像の表示 -->
-                        <Image Width="200" Height="200" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,100,0,0" Source="{Binding PictureImage}"/>
+                        <TextBlock Text="{Binding Picture}" />
                     </StackPanel>
                 </DataTemplate>
             </ListView.ItemTemplate>
-        </ListView>
 
+        </ListView>
         <TextBox Grid.Column="1" HorizontalAlignment="Center" 
                  Margin="0,125,0,-90" Grid.Row="3" Width="672"
                  x:Name="SeartchTextBox" FontSize="20" TextChanged="SeartchTextBox_TextChanged" />
@@ -61,21 +59,7 @@
 
         <Button Content="画像" HorizontalAlignment="Center" Grid.Row="3" VerticalAlignment="Center" RenderTransformOrigin="0.5,0.5" Height="60" Width="100"/>
 
-        <StackPanel Grid.Column="1" Grid.Row="3" Margin="2">
-            <Button Content="画像選択" Click="ImageButton_Click"/>
-            <!-- 画像表示用のImageコントロール -->
-            <Image x:Name="CustomerImage" 
-           Width="200" Height="200" 
-           HorizontalAlignment="Center" 
-           VerticalAlignment="Top" 
-           Margin="0,10,0,0"/>
-        </StackPanel>
-
-
-
-
-
-
+        <StackPanel Grid.Column="1" Grid.Row="3" Margin="2"/>
 
 
 
