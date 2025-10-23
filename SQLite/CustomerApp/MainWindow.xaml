@@ -5,65 +5,21 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:CustomerApp"
         mc:Ignorable="d"
-        Title="顧客管理" Height="1000" Width="1000">
-    <Grid>
-
-        <!--#region -->
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="100"/>
-            <ColumnDefinition Width="700"/>
-        </Grid.ColumnDefinitions>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="30"/>
-            <RowDefinition Height="30"/>
-            <RowDefinition Height="30"/>
-            <RowDefinition Height="60"/>
-        </Grid.RowDefinitions>
-        <!--#endregion-->
-
-        <!--#region -->
-        <Label Content="名前" FontSize="15" Grid.Row="0" Grid.Column="0"/>
-        <Label Content="電話番号" FontSize="15" Grid.Row="1" Grid.Column="0"/>
-        <Label Content="住所" FontSize="15" Grid.Row="2" Grid.Column="0"/>
-        <!--#endregion-->
-
-        <!--#region -->
-        <TextBox x:Name="NameTextBox" Grid.Row="0" Grid.Column="1" Margin="2"/>
-        <TextBox x:Name="PhoneTextBox" Grid.Row="1" Grid.Column="1" Margin="2"/>
-        <TextBox x:Name="JyushoTextBox" Grid.Row="2" Grid.Column="1" Margin="2"/>
-
-        <Button Content="更新" x:Name="UpdateButton" Click="UpdateButton_Click" Margin="0,90,0,-60" Grid.Row="3"/>
-        <Button Content="保存" x:Name="SaveButton" Click="SaveButton_Click" Margin="0,60,0,-30" Grid.Row="3" />
-        <Button Content="取得" x:Name="ReadButton" Click="ReadButton_Click" Margin="0,120,0,-90" Grid.Row="3" />
-        <Button Content="削除" x:Name="DeleteButton" Click="DeleteButton_Click" Grid.Column="1" Margin="598,90,2,-60" Grid.Row="3" />
-        <!--#endregion-->
-
-        <ListView x:Name="CustomerListView" Margin="0,155,2,-700" SelectionChanged="CustomerListView_SelectionChanged" Grid.Column="1" Grid.Row="3">
+        Title="顧客管理アプリケーション" Width="400">
+    <StackPanel>
+        <StackPanel>
+            <Button Content="画像" Click="Button_Click"/>
+            <Image x:Name="PictureImageBox" Height="200" Width="250"/>
+        </StackPanel>
+        <Button Content="Save" x:Name="SaveButton" Click="SaveButton_Click"  Margin="2"/>
+        <ListView x:Name="CustomerListView" Height="400">
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <StackPanel>
-                        <TextBlock Text="{Binding Id}"/>
-                        <TextBlock Text="{Binding Name}" FontSize="20"/>
-                        <TextBlock Text="{Binding Phone}" Foreground="Blue"/>
-                        <TextBlock Text="{Binding Picture}" />
+                        <Image Source="{Binding Picture}" Width="250"/>
                     </StackPanel>
                 </DataTemplate>
             </ListView.ItemTemplate>
-
         </ListView>
-        <TextBox Grid.Column="1" HorizontalAlignment="Center" 
-                 Margin="0,125,0,-90" Grid.Row="3" Width="672"
-                 x:Name="SeartchTextBox" FontSize="20" TextChanged="SeartchTextBox_TextChanged" />
-
-
-
-        <Button Content="画像" HorizontalAlignment="Center" Grid.Row="3" VerticalAlignment="Center" RenderTransformOrigin="0.5,0.5" Height="60" Width="100"/>
-
-        <StackPanel Grid.Column="1" Grid.Row="3" Margin="2"/>
-        <Image x:Name="ImageBox" Grid.Column="1" HorizontalAlignment="Left" Height="100" Margin="266,27,0,0" Grid.Row="2" VerticalAlignment="Top" Width="100" Grid.RowSpan="2"/>
-
-
-
-
-    </Grid>
+    </StackPanel>
 </Window>
