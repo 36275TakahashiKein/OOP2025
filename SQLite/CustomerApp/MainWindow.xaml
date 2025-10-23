@@ -12,7 +12,7 @@
             <Image x:Name="PictureImageBox" Height="200" Width="250"/>
         </StackPanel>
         <Button Content="Save" x:Name="SaveButton" Click="SaveButton_Click"  Margin="2"/>
-        <ListView x:Name="CustomerListView" Height="400">
+        <ListView x:Name="CustomerListView" Height="400" SelectionChanged="CustomerListView_SelectionChanged">
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <StackPanel>

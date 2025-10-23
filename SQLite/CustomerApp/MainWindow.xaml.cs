@@ -76,6 +76,28 @@ namespace CustomerApp {
             return byteArray;
         }
 
+        private void CustomerListView_SelectionChanged(object sender, SelectionChangedEventArgs e) {
+            if (CustomerListView.SelectedIndex != -1) {
+                if (_customer[CustomerListView.SelectedIndex].Picture != null) {
+                    PictureImageBox.Source = byteToBitmap(_customer[CustomerListView.SelectedIndex].Picture);
+                } else {
+                    PictureImageBox.Source = null;
+                }
+            }
+        }
 
+        public static BitmapImage byteToBitmap(byte[] bytes) {
+            var result = new BitmapImage();
+
+            using (var stream = new MemoryStream(bytes)) {
+                result.BeginInit();
+                result.CacheOption = BitmapCacheOption.OnLoad;
+                result.CreateOptions = BitmapCreateOptions.None;
+                result.StreamSource = stream;
+                result.EndInit();
+                result.Freeze();    // 非UIスレッドから作成する場合、Freezeしないとメモリリークするため注意
+            }
+            return result;
+        }
     }
 }
