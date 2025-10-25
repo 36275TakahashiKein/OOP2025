@@ -5,12 +5,38 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namest00"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
-    <Grid>
-        
+        Title="MainWindow" Width="400">
+    <Grid Background="AliceBlue">
         <StackPanel>
+            <StackPanel Orientation="Horizontal" Width="200" Height="100" HorizontalAlignment="Left" VerticalAlignment="Top">
+                <StackPanel Height="100">
+                    <Label Content="名前" Width="50" Height="25" FontSize="10" HorizontalAlignment="Left"/>
+                    <Label Content="電話番号" Width="50" Height="25" FontSize="10" HorizontalAlignment="Left" />
+                    <Label Content="住所" Width="50" Height="25" FontSize="10" HorizontalAlignment="Left"/>
+                    <Label Content="郵便番号" Width="50" Height="25" FontSize="10" HorizontalAlignment="Left"/>
+                </StackPanel>
+                <StackPanel Height="100">
+                    <TextBox x:Name="NameTextBox" Width="150" Height="24" Margin="0,0,0,1" />
+                    <TextBox x:Name="PhoneTextBox" Width="150" Height="24" Margin="0,0,0,1" />
+                    <TextBox x:Name="AddressTextBox" Width="150" Height="24" Margin="0,0,0,1"/>
+                    <TextBox x:Name="UbinTextBox" Width="150" Height="24" Margin="0,0,0,1"/>
+                </StackPanel>
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal" Height="75" Width="200" HorizontalAlignment="Left">
+                <Button Content="画像選択" FontSize="10" Width="50" Height="40" Background="#FF85C6FF"/>
+                <Image  x:Name="PictureImageBox" Height="75" Width="150"/>
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal" Height="50" Width="200" HorizontalAlignment="Left">
+                <Button Content="新規登録" FontSize="10" Width="50" Height="40" Margin="40,0,0,0" Background="#FF85C6FF"/>
+                <Button Content="更新" FontSize="10" Width="50" Height="40" Margin="20,0,0,0" Background="#FF85C6FF"/>
+            </StackPanel>
             
         </StackPanel>
+
+        <ListView Width="200" Height="175" VerticalAlignment="Top" HorizontalAlignment="Right"/>
+        <Button Content="削除"  FontSize="10" Width="50" Height="25" Margin="0,0,5,5" VerticalAlignment="Bottom" HorizontalAlignment="Right" Background="#FFFFC4C4"/>
 
     </Grid>
 </Window>
