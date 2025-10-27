@@ -183,7 +183,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sample", "SQLite\Sample\Sam
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Test00", "SQLite\Test00\Test00.csproj", "{E2FF3C9B-A423-4B37-A495-65FEC597EEFE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CustomerApp", "SQLite\CustomerApp\CustomerApp.csproj", "{64A67110-8BC8-EEE1-D9EA-70A20098F162}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CustomerApp0", "SQLite\CustomerApp\CustomerApp0.csproj", "{64A67110-8BC8-EEE1-D9EA-70A20098F162}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
