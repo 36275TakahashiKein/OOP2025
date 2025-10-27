@@ -5,21 +5,49 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:CustomerApp"
         mc:Ignorable="d"
-        Title="顧客管理アプリケーション" Width="400">
-    <StackPanel>
+        Title="顧客管理アプリケーション" Width="400" Height="260">
+    <Grid Background="AliceBlue">
         <StackPanel>
-            <Button Content="画像" Click="Button_Click"/>
-            <Image x:Name="PictureImageBox" Height="200" Width="250"/>
+            <StackPanel Orientation="Horizontal" Width="200" Height="100" HorizontalAlignment="Left" VerticalAlignment="Top">
+                <StackPanel Height="100">
+                    <Label Content="名前" Width="50" Height="25" FontSize="10" HorizontalAlignment="Left"/>
+                    <Label Content="電話番号" Width="50" Height="25" FontSize="10" HorizontalAlignment="Left" />
+                    <Label Content="住所" Width="50" Height="25" FontSize="10" HorizontalAlignment="Left"/>
+                    <Label Content="郵便番号" Width="50" Height="25" FontSize="10" HorizontalAlignment="Left"/>
+                </StackPanel>
+                <StackPanel Height="100">
+                    <TextBox x:Name="NameTextBox" Width="150" Height="24" Margin="0,0,0,1" />
+                    <TextBox x:Name="PhoneTextBox" Width="150" Height="24" Margin="0,0,0,1" />
+                    <TextBox x:Name="AddressTextBox" Width="150" Height="24" Margin="0,0,0,1"/>
+                    <TextBox x:Name="UbinTextBox" Width="150" Height="24" Margin="0,0,0,1"/>
+                </StackPanel>
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal" Height="75" Width="200" HorizontalAlignment="Left">
+                <Button Content="画像選択" Click="Button_Click" FontSize="10" Width="50" Height="40" Background="#FF85C6FF"/>
+                <Image  x:Name="PictureImageBox" Height="75" Width="150"/>
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal" Height="50" Width="200" HorizontalAlignment="Left">
+                <Button Content="新規登録" x:Name="SaveButton" Click="SaveButton_Click" FontSize="10" Width="50" Height="40" Margin="40,0,0,0" Background="#FF85C6FF"/>
+                <Button Content="更新" x:Name="UpdateButton" Click="UpdateButton_Click"  FontSize="10" Width="50" Height="40" Margin="20,0,0,0" Background="#FF85C6FF"/>
+            </StackPanel>
+
         </StackPanel>
-        <Button Content="Save" x:Name="SaveButton" Click="SaveButton_Click"  Margin="2"/>
-        <ListView x:Name="CustomerListView" Height="400" SelectionChanged="CustomerListView_SelectionChanged">
+
+        <ListView  x:Name="CustomerListView" Width="200" Height="175" VerticalAlignment="Top" HorizontalAlignment="Right">
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <StackPanel>
-                        <Image Source="{Binding Picture}" Width="250"/>
+                        <TextBlock Text="{Binding Name}" FontSize="20"/>
+                        <TextBlock Text="{Binding Phone}"/>
+                        <TextBlock Text="{Binding Address}"/>
+                        <Image Source="{Binding Picture}" Width="50" VerticalAlignment="Center" HorizontalAlignment="Center"/>
                     </StackPanel>
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>
-    </StackPanel>
+        <Button Content="削除" x:Name="DeleteButton" Click="DeleteButton_Click" FontSize="10" Width="50" Height="25" Margin="0,0,5,5" VerticalAlignment="Bottom" HorizontalAlignment="Right" Background="#FFFFC4C4"/>
+
+    </Grid>
 </Window>

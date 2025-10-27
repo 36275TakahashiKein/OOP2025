@@ -43,7 +43,15 @@ namespace CustomerApp {
         }
 
         private void SaveButton_Click(object sender, RoutedEventArgs e) {
-            Customer customer = new Customer();
+            //Customer customer = new Customer();
+
+            Customer customer = new Customer() {
+                Name = NameTextBox.Text,
+                Phone = PhoneTextBox.Text,
+                Address = AddressTextBox.Text,
+            };
+
+
 
             //customer.Picture = File.ReadAllBytes(ofd.FileName);
 
@@ -55,6 +63,73 @@ namespace CustomerApp {
             }
             ReadDatabase();
             CustomerListView.ItemsSource = _customer;
+        }
+
+     
+        
+
+        private void UpdateButton_Click(object sender, RoutedEventArgs e) {
+            var selectedCustomer = CustomerListView.SelectedItem as Customer;
+            if (selectedCustomer is null) return;
+            using (var connection = new SQLiteConnection(App.databasePath)) {
+                connection.CreateTable<Customer>();
+                var customer = new Customer() {
+                    Id = selectedCustomer.Id,
+                    Name = NameTextBox.Text,
+                    Phone = PhoneTextBox.Text,
+                    //Picture = PictureImageBox.
+                };
+                connection.Update(customer);
+            }
+            ReadDatabase();
+            CustomerListView.ItemsSource = _customer;
+        }
+
+        private void DeleteButton_Click(object sender, RoutedEventArgs e) {
+            var item = CustomerListView.SelectedItem as Customer;
+
+
+            if (item == null) {
+                MessageBox.Show("行を選択してください"); return;
+            }
+            //データベース接続
+            using (var connection = new SQLiteConnection(App.databasePath)) {
+                connection.CreateTable<Customer>();
+                connection.Delete(item);//データベースから選択されているレコードの削除
+                ReadDatabase();
+                CustomerListView.ItemsSource = _customer;
+
+            }
+        }
+
+        private void CustomerListView_SelectionChanged(object sender, SelectionChangedEventArgs e) {
+            var selectedCustomer = CustomerListView.SelectedItem as Customer;
+
+            if (CustomerListView.SelectedIndex != -1) {
+                if (_customer[CustomerListView.SelectedIndex].Picture != null) {
+                    // 選択した人の名前と電話をテキストボックスに表示する
+                    NameTextBox.Text = selectedCustomer?.Name;
+                    PhoneTextBox.Text = selectedCustomer?.Phone;
+                    AddressTextBox.Text = selectedCustomer?.Address;
+                    PictureImageBox.Source = byteToBitmap(_customer[CustomerListView.SelectedIndex].Picture);
+                } else {
+                    PictureImageBox.Source = null;
+                }
+            }
+        }
+
+        public static BitmapImage byteToBitmap(byte[] bytes) {
+            var result = new BitmapImage();
+
+            using (var stream = new MemoryStream(bytes)) {
+                result.BeginInit();
+                result.CacheOption = BitmapCacheOption.OnLoad;
+                result.CreateOptions = BitmapCreateOptions.None;
+                result.StreamSource = stream;
+                result.EndInit();
+                result.Freeze();    // 非UIスレッドから作成する場合、Freezeしないとメモリリークするため注意
+            }
+            return result;
         }
 
         public static byte[] ImageSourceToByteArray(ImageSource imageSource) {
@@ -76,28 +151,6 @@ namespace CustomerApp {
             return byteArray;
         }
 
-        private void CustomerListView_SelectionChanged(object sender, SelectionChangedEventArgs e) {
-            if (CustomerListView.SelectedIndex != -1) {
-                if (_customer[CustomerListView.SelectedIndex].Picture != null) {
-                    PictureImageBox.Source = byteToBitmap(_customer[CustomerListView.SelectedIndex].Picture);
-                } else {
-                    PictureImageBox.Source = null;
-                }
-            }
-        }
-
-        public static BitmapImage byteToBitmap(byte[] bytes) {
-            var result = new BitmapImage();
-
-            using (var stream = new MemoryStream(bytes)) {
-                result.BeginInit();
-                result.CacheOption = BitmapCacheOption.OnLoad;
-                result.CreateOptions = BitmapCreateOptions.None;
-                result.StreamSource = stream;
-                result.EndInit();
-                result.Freeze();    // 非UIスレッドから作成する場合、Freezeしないとメモリリークするため注意
-            }
-            return result;
-        }
+       
     }
 }
