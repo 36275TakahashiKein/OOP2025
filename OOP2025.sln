@@ -193,6 +193,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "演習問題", "演習問�
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Exercise01", "Chapter13\演習問題\Exercise01\Exercise01.csproj", "{BE795FFD-B660-48A2-BD95-37D57B1B89D6}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TelloConsole", "..\..\..\..\OneDrive - 学校法人太田アカデミー\デスクトップ\02_csCommandTello\TelloConsole\TelloConsole.csproj", "{0215B5C7-3FE9-40AA-976E-0BE03AF2726D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -721,6 +723,14 @@ Global
 		{BE795FFD-B660-48A2-BD95-37D57B1B89D6}.Release|Any CPU.Build.0 = Release|Any CPU
 		{BE795FFD-B660-48A2-BD95-37D57B1B89D6}.Release|x64.ActiveCfg = Release|Any CPU
 		{BE795FFD-B660-48A2-BD95-37D57B1B89D6}.Release|x64.Build.0 = Release|Any CPU
+		{0215B5C7-3FE9-40AA-976E-0BE03AF2726D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0215B5C7-3FE9-40AA-976E-0BE03AF2726D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0215B5C7-3FE9-40AA-976E-0BE03AF2726D}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{0215B5C7-3FE9-40AA-976E-0BE03AF2726D}.Debug|x64.Build.0 = Debug|Any CPU
+		{0215B5C7-3FE9-40AA-976E-0BE03AF2726D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0215B5C7-3FE9-40AA-976E-0BE03AF2726D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0215B5C7-3FE9-40AA-976E-0BE03AF2726D}.Release|x64.ActiveCfg = Release|Any CPU
+		{0215B5C7-3FE9-40AA-976E-0BE03AF2726D}.Release|x64.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
