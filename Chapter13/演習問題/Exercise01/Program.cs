@@ -72,15 +72,59 @@ namespace Exercise01 {
         }
 
         private static void Exercise1_5() {
+            var books = Library.Books.Where(b => b.PublishedYear == 2022)
+                .Join(Library.Categories
+                        , b => b.CategoryId
+                        , c => c.Id,
+                        (b, c) => new {
+                            c.Name
+                        }).Distinct();
 
+            foreach (var book in books) {
+                Console.WriteLine($"{book}");
+            }
         }
 
         private static void Exercise1_6() {
+            var books = Library.Books
+                 .Join(Library.Categories
+                         , b => b.CategoryId
+                         , c => c.Id,
+                         (b, c) => new {
+                             CategoryName = c.Name,
+                             b.Title,
+                         }).GroupBy(x => x.CategoryName)
+                         .OrderBy(x => x.Key);
 
+            foreach (var book in books) {
+                Console.WriteLine($"#{book.Key}");
+                foreach (var bok in book) {
+                    Console.WriteLine($"{bok.Title}");
+                }
+            }
         }
 
         private static void Exercise1_7() {
+            var books = Library.Categories
+                .Where(x => x.Name.Equals("Development"))
+                .Join(Library.Books
+                        , c => c.Id
+                        , b => b.CategoryId
+                        ,
+                        (c, b) => new {
+                            b.Title,
+                            b.PublishedYear,
+                        })
+                .GroupBy(x => x.PublishedYear)
+                .OrderBy(x => x.Key)
+                ;
 
+            foreach (var book in books) {
+                Console.WriteLine($"#{book.Key}");
+                foreach (var bok in book) {
+                    Console.WriteLine($"{bok.Title}");
+                }
+            }
         }
 
         private static void Exercise1_8() {
