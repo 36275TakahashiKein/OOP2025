@@ -26,35 +26,65 @@ namespace Exercise01 {
         }
 
         private static void Exercise1_3() {
-            var book3 = Library.Books
+            /* var book3 = Library.Books
+                 .GroupBy(b => b.PublishedYear)
+                 .OrderByDescending(b => b.Key);
+             foreach (var book3x in book3) {
+                 Console.WriteLine($"{book3x.Key}年{book3x.Count()}");
+             }*/
+
+            var result = Library.Books
                 .GroupBy(b => b.PublishedYear)
-                .OrderByDescending(b => b.Key);
-            foreach (var book3s in book3) {
-                Console.WriteLine($"{book3s.Key}");
-                
+                .OrderBy(b => b.Key)
+                .Select(b => new {
+                    PublishYear = b.Key,
+                    Count = b.Count()
+                });
+
+            foreach (var item in result) {
+                Console.WriteLine($"{item.PublishYear}:{item.Count}");
 
             }
-            
         }
 
         private static void Exercise1_4() {
-            
+            /*var book4 = Library.Books
+                .GroupBy(b => b.PublishedYear)
+                .OrderByDescending(b => b.Key);
+            foreach (var book4x in book4) {
+                var book4y = book4x
+                    .GroupBy(b => b.Price)
+                    .OrderByDescending(b => b.Key);
+                foreach (var book4z in book4y) {
+                    Console.WriteLine($"{book4z.Key}年");
+                }
+                
+            }*/
+
+            var book4x = Library.Books
+                .OrderByDescending(b => b.PublishedYear)
+                .ThenByDescending(b => b.Price);
+
+            foreach (var item in book4x) {
+                Console.WriteLine($"{item.PublishedYear}年{item.Price}{item.Title}");
+
+            }
         }
 
         private static void Exercise1_5() {
-            
+
         }
 
         private static void Exercise1_6() {
-            
+
         }
 
         private static void Exercise1_7() {
-            
+
         }
 
         private static void Exercise1_8() {
-            
+
         }
     }
 }
