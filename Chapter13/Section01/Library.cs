@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace Section01 {
 
+   
     public class Category {
         public int Id { get; set; }
         public string Name { get; set; } = string.Empty;
@@ -26,7 +27,9 @@ namespace Section01 {
         }
     }
 
+    //静的クラス
     public static class Library {
+        //静的プロパティ
         // Categoriesプロパティで上記のカテゴリの一覧を得ることができる。
         public static IEnumerable<Category> Categories { get; private set; }
 

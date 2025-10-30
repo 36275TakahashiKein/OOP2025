@@ -71,6 +71,14 @@
                             Category = c.Name,
                             Books = books,
                         });
+
+            //出力処理
+            foreach (var group in groups) {
+                Console.WriteLine(group.Category);
+                foreach (var book in group.Books) {
+                    Console.WriteLine($"{book.Title} ({book.PublishedYear})年");
+                }
+            }
         }
     }
 }
