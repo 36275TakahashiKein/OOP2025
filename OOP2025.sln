@@ -193,8 +193,6 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "演習問題", "演習問�
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Exercise01", "Chapter13\演習問題\Exercise01\Exercise01.csproj", "{BE795FFD-B660-48A2-BD95-37D57B1B89D6}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TelloConsole", "..\..\..\..\OneDrive - 学校法人太田アカデミー\デスクトップ\02_csCommandTello\TelloConsole\TelloConsole.csproj", "{0215B5C7-3FE9-40AA-976E-0BE03AF2726D}"
-EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Chapter14", "Chapter14", "{F6835DAB-AB45-465A-8C08-E73701AD2F30}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Section03", "Chapter14\Section03\Section03.csproj", "{D300F082-4ACC-4A40-BE55-E68704C01671}"
@@ -204,6 +202,8 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Exercise01_Forms", "Chapter14\演習問題\Exercise01_Forms\Exercise01_Forms.csproj", "{A20C54FF-4778-4EB3-8341-71CFF40819B5}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Exercise01_Console", "Chapter14\演習問題\Exercise01_Console\Exercise01_Console.csproj", "{EA2CC87D-69E8-458E-85F6-A2E159DAC8F4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TelloConsole", "..\..\..\..\OneDrive - 学校法人太田アカデミー\デスクトップ\02_csCommandTello\TelloConsole\TelloConsole.csproj", "{2453128F-E0CF-40A8-91BE-B52448AC5B34}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -733,14 +733,6 @@ Global
 		{BE795FFD-B660-48A2-BD95-37D57B1B89D6}.Release|Any CPU.Build.0 = Release|Any CPU
 		{BE795FFD-B660-48A2-BD95-37D57B1B89D6}.Release|x64.ActiveCfg = Release|Any CPU
 		{BE795FFD-B660-48A2-BD95-37D57B1B89D6}.Release|x64.Build.0 = Release|Any CPU
-		{0215B5C7-3FE9-40AA-976E-0BE03AF2726D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{0215B5C7-3FE9-40AA-976E-0BE03AF2726D}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{0215B5C7-3FE9-40AA-976E-0BE03AF2726D}.Debug|x64.ActiveCfg = Debug|Any CPU
-		{0215B5C7-3FE9-40AA-976E-0BE03AF2726D}.Debug|x64.Build.0 = Debug|Any CPU
-		{0215B5C7-3FE9-40AA-976E-0BE03AF2726D}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{0215B5C7-3FE9-40AA-976E-0BE03AF2726D}.Release|Any CPU.Build.0 = Release|Any CPU
-		{0215B5C7-3FE9-40AA-976E-0BE03AF2726D}.Release|x64.ActiveCfg = Release|Any CPU
-		{0215B5C7-3FE9-40AA-976E-0BE03AF2726D}.Release|x64.Build.0 = Release|Any CPU
 		{D300F082-4ACC-4A40-BE55-E68704C01671}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{D300F082-4ACC-4A40-BE55-E68704C01671}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D300F082-4ACC-4A40-BE55-E68704C01671}.Debug|x64.ActiveCfg = Debug|Any CPU
@@ -765,6 +757,14 @@ Global
 		{EA2CC87D-69E8-458E-85F6-A2E159DAC8F4}.Release|Any CPU.Build.0 = Release|Any CPU
 		{EA2CC87D-69E8-458E-85F6-A2E159DAC8F4}.Release|x64.ActiveCfg = Release|Any CPU
 		{EA2CC87D-69E8-458E-85F6-A2E159DAC8F4}.Release|x64.Build.0 = Release|Any CPU
+		{2453128F-E0CF-40A8-91BE-B52448AC5B34}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2453128F-E0CF-40A8-91BE-B52448AC5B34}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2453128F-E0CF-40A8-91BE-B52448AC5B34}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{2453128F-E0CF-40A8-91BE-B52448AC5B34}.Debug|x64.Build.0 = Debug|Any CPU
+		{2453128F-E0CF-40A8-91BE-B52448AC5B34}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2453128F-E0CF-40A8-91BE-B52448AC5B34}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2453128F-E0CF-40A8-91BE-B52448AC5B34}.Release|x64.ActiveCfg = Release|Any CPU
+		{2453128F-E0CF-40A8-91BE-B52448AC5B34}.Release|x64.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
