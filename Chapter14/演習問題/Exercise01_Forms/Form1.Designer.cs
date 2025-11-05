@@ -26,6 +26,8 @@
             button1 = new Button();
             statusStrip1 = new StatusStrip();
             toolStripStatusLabel1 = new ToolStripStatusLabel();
+            textBox1 = new TextBox();
+            label1 = new Label();
             statusStrip1.SuspendLayout();
             SuspendLayout();
             // 
@@ -54,11 +56,32 @@
             toolStripStatusLabel1.Size = new Size(118, 17);
             toolStripStatusLabel1.Text = "toolStripStatusLabel1";
             // 
+            // textBox1
+            // 
+            textBox1.Location = new Point(12, 51);
+            textBox1.Name = "textBox1";
+            textBox1.Size = new Size(300, 23);
+            textBox1.TabIndex = 2;
+            textBox1.TextChanged += textBox1_TextChanged;
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Location = new Point(24, 18);
+            label1.Name = "label1";
+            label1.Size = new Size(38, 15);
+            label1.TabIndex = 3;
+            label1.Text = "label1";
+            label1.AutoSizeChanged += button1_Click;
+            label1.Click += label1_Click;
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
+            Controls.Add(label1);
+            Controls.Add(textBox1);
             Controls.Add(statusStrip1);
             Controls.Add(button1);
             Name = "Form1";
@@ -74,5 +97,7 @@
         private Button button1;
         private StatusStrip statusStrip1;
         private ToolStripStatusLabel toolStripStatusLabel1;
+        private TextBox textBox1;
+        private Label label1;
     }
 }
