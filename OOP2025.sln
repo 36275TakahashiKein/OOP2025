@@ -213,8 +213,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebBrowser", "Chapter14\Web
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Section05", "Chapter14\Section05\Section05.csproj", "{9A4B4E75-3874-4760-A669-27D477495BFA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebBrowser", "Chapter14\WebBrowser\WebBrowser.csproj", "{63014B61-A3C6-4DB8-B31F-AB0E2A24B314}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
