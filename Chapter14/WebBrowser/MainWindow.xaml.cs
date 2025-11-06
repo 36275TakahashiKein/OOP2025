@@ -11,6 +11,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Microsoft.Web.WebView2.Core;
 
 namespace WebBrowser;
 
@@ -20,6 +21,12 @@ namespace WebBrowser;
 public partial class MainWindow : Window {
     public MainWindow() {
         InitializeComponent();
+        /*// WebView2初期化完了イベント追加
+        this.WebView.CoreWebView2InitializationCompleted += this.WebView2InitializationCompleted;
+
+        // WebView2初期化完了確認
+        this.WebView.EnsureCoreWebView2Async(null);*/
+
     }
 
     private void BackButton_Click(object sender, RoutedEventArgs e) {
@@ -30,9 +37,45 @@ public partial class MainWindow : Window {
 
     }
 
-    private void GoButton_Click(object sender, RoutedEventArgs e) {
+    private async void GoButton_Click(object sender, RoutedEventArgs e) {
+        var bbb = AddressBar.Text;
+        if (this.WebView.CoreWebView2 != null) {
+            // CoreWebView2が初期化されていれば、Navigateを呼び出す
+            this.WebView.CoreWebView2.Navigate($"{bbb}");
 
+            // 遷移完了のイベント追加
+            this.WebView.CoreWebView2.NavigationCompleted += this.webView2_NavigationCompleted;
+        } else {
+            // CoreWebView2が初期化されていない場合、初期化を待つ
+            await this.WebView.EnsureCoreWebView2Async(null);
+            this.WebView.CoreWebView2.Navigate($"{bbb}");
+            this.WebView.CoreWebView2.NavigationCompleted += this.webView2_NavigationCompleted;
+        }
     }
+    
+
+    private void WebView2InitializationCompleted(object sender, CoreWebView2InitializationCompletedEventArgs e) {
+        if (e.IsSuccess) {
+            // どこぞやのURL
+            this.WebView.CoreWebView2.Navigate("https://www.yahoo.co.jp/");
+
+            // 遷移完了のイベント追加
+            this.WebView.CoreWebView2.NavigationCompleted += this.webView2_NavigationCompleted;
+        } else {
+            // エラー処理
+        }
+    }
+
+    private void webView2_NavigationCompleted(object sender, CoreWebView2NavigationCompletedEventArgs e) {
+        if (e.IsSuccess) {
+            // 実行したいJavaSciprtを記載　※サンプル：name:pppppのタグに"C#"の文字列をセット
+            this.WebView.ExecuteScriptAsync("document.getElementsByName('ppppp').item(0).value = 'C#';");
+        } else {
+            // エラー処理
+        }
+    }
+
+
 
     /*static async Task Main(string[] args) {
         HttpClient hc = new HttpClient();
@@ -45,10 +88,11 @@ public partial class MainWindow : Window {
         Console.WriteLine(text);
     }*/
 
-    static async Task GetHtmlExample(HttpClient httpClient) {
+    /*static async Task GetHtmlExample(HttpClient httpClient) {
         var url = "https://www.yahoo.co.jp/";
         var text = await httpClient.GetStreamAsync(url);
         Console.WriteLine(text);
+        
     }
 
     static async Task<string> GetFromWikipediaAsync(HttpClient httpClient, string keyword) {
@@ -84,5 +128,5 @@ public partial class MainWindow : Window {
     // element直下のキー名を取得する
     static string GetChildPropertyName(JsonElement element) {
         return element.EnumerateObject().First().Name;
-    }
+    }*/
 }
