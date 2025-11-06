@@ -2,8 +2,11 @@
 using System.Diagnostics;
 namespace Section05 {
     internal class Program {
-        static void Main(string[] args) {
-            Code14_20.Run2();
+        static async Task Main(string[] args) {
+
+            var ta = new TaskExample();
+
+            await ta.Run();
             /*Console.WriteLine("並列処理あり");
             Parallel.For(0,5,i => {
                 Console.WriteLine($"処理{i}開始");
@@ -20,7 +23,30 @@ namespace Section05 {
             }*/
         }
 
-        public class Code14_20 {
+        // Code 14.22
+        public class TaskExample {
+            private readonly HttpClient _httpClient = new HttpClient();
+
+            public async Task Run() {
+                var tasks = new Task<string>[] {
+            GetPageAsync(@"https://business.nikkei.com/rss/sns/nb.rdf"),
+            GetPageAsync(@"https://www.nhk.or.jp/rss/news/cat3.xml"),
+        };
+                var results = await Task.WhenAll(tasks);
+
+                // それぞれ先頭400文字を表示する
+                var text = $"{results[0].Substring(0, 400)}\n\n{results[1].Substring(0, 400)}";
+                Console.WriteLine(text);
+            }
+
+
+            private async Task<string> GetPageAsync(string urlstr) {
+                var str = await _httpClient.GetStringAsync(urlstr);
+                return str;
+            }
+
+        }
+        /*public class Code14_20 {
 
             public static async Task Run() {
                 var sw = Stopwatch.StartNew();
@@ -68,7 +94,7 @@ namespace Section05 {
                         yield return i;
                 }
             }
-        }
+        }*/
 
     }
 }
