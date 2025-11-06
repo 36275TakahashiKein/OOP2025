@@ -21,6 +21,7 @@ namespace WebBrowser;
 public partial class MainWindow : Window {
     public MainWindow() {
         InitializeComponent();
+        InitializeAsync();
         /*// WebView2初期化完了イベント追加
         this.WebView.CoreWebView2InitializationCompleted += this.WebView2InitializationCompleted;
 
@@ -29,16 +30,46 @@ public partial class MainWindow : Window {
 
     }
 
-    private void BackButton_Click(object sender, RoutedEventArgs e) {
+    private async void InitializeAsync() {
+        await WebView.EnsureCoreWebView2Async();
+        WebView.CoreWebView2.NavigationStarting += CoreWebView2_NavigationStarting;
+        WebView.CoreWebView2.NavigationCompleted += CoreWebView2_NavigationCompleted;
+    }
+
+    //読み込み完了したらプログレスバーを表示
+    private void CoreWebView2_NavigationStarting(object? sender, CoreWebView2NavigationStartingEventArgs e) {
+        LoadingBar.Visibility = Visibility.Visible;
+        LoadingBar.IsIndeterminate = true;
+    }
+
+    //読み込み完了したらプログレスバーを非表示
+    private void CoreWebView2_NavigationCompleted(object? sender, CoreWebView2NavigationCompletedEventArgs e) {
+        LoadingBar.Visibility = Visibility.Collapsed;
+        LoadingBar.IsIndeterminate = false;
 
     }
 
+    private void BackButton_Click(object sender, RoutedEventArgs e) {
+        if (WebView.CanGoBack) {
+            WebView.GoBack();
+        }
+    }
+    
     private void ForwardButton_Click(object sender, RoutedEventArgs e) {
-
+        if (WebView.CanGoForward) {
+            WebView.GoForward();
+        }
     }
 
     private async void GoButton_Click(object sender, RoutedEventArgs e) {
-        var bbb = AddressBar.Text;
+        var url = AddressBar.Text;
+        if (string.IsNullOrWhiteSpace(url)) return;
+
+        WebView.Source = new Uri(url);
+
+
+
+        /*var bbb = AddressBar.Text;
         if (this.WebView.CoreWebView2 != null) {
             // CoreWebView2が初期化されていれば、Navigateを呼び出す
             this.WebView.CoreWebView2.Navigate($"{bbb}");
@@ -50,7 +81,7 @@ public partial class MainWindow : Window {
             await this.WebView.EnsureCoreWebView2Async(null);
             this.WebView.CoreWebView2.Navigate($"{bbb}");
             this.WebView.CoreWebView2.NavigationCompleted += this.webView2_NavigationCompleted;
-        }
+        }*/
     }
     
 
