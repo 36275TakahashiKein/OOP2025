@@ -8,20 +8,20 @@ using TextFileProcessor;
 namespace LineCounter {
     internal class LineCounterProcessor : TextProcessor {
         private int _count = 0;
-        private string lolo;
+        private string? _lolo;
 
         protected override void Initialize(string fname) {
             _count = 0;
             Console.WriteLine("任意の文字");
-            lolo = Console.ReadLine();
+            _lolo = Console.ReadLine();
         }
 
         protected override void Execute(string line) {
 
-            if (line.Contains(lolo)) _count++;
+            if (line.Contains(_lolo)) _count++;
         }
 
-        protected override void Terminate() => Console.WriteLine("{0} 行", _count);
+        protected override void Terminate() => Console.WriteLine(_lolo + "{0} 行", _count);
 
     }
 }
