@@ -3,7 +3,9 @@
 namespace LineCounter {
     internal class Program {
         static void Main(string[] args) {
-            TextProcessor.Run<LineCounterProcessor>(args[0]);
+            Console.WriteLine("ファイルのパスを指定してください");
+            string path = Console.ReadLine();
+            TextProcessor.Run<LineCounterProcessor>(fileName: path);
         }
     }
 }
