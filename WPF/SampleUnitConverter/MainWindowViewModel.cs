@@ -10,16 +10,32 @@ using Prism.Commands;
 namespace SampleUnitConverter {
     internal class MainWindowViewModel : BindableBase {
 
-        //フィールド
-        private double metricValue = 0;
-        private double imperialValue = 0;
+        private double metricValue = 0;　//フィールド
+        public double MetricValue {
+            get => metricValue;
+            set {
+                //this.metricValue = value;
+                this.SetProperty(ref metricValue, value);
+            }
+        }
+
+        private double imperialValue = 0;　//フィールド
+        public double ImperialValue {
+            get => imperialValue;
+            set {
+                //this.imperialValue = value;
+                this.SetProperty(ref imperialValue, value);
+            }
+        }
+
+
 
         private MetricUnit currentMetricUnit;
         private ImperialUnit currentImperialUnit;
 
         //▲で呼ばれるコマンド
         public DelegateCommand ImperialUnitToMetric { get; }
-        //▲で呼ばれるコマンド
+        //▼で呼ばれるコマンド
         public DelegateCommand MetricToImperialUnit { get; }
 
         //上のComboBoxで選択されている値
@@ -32,23 +48,9 @@ namespace SampleUnitConverter {
             get => currentImperialUnit;
             set => SetProperty(ref currentImperialUnit, value);
         }
-        //プロパティ
 
-        public double MetricValue {
-            get => metricValue;
-            set {
-                this.metricValue = value;
-                this.SetProperty(ref metricValue, value);
-            }
-        }
 
-        public double ImperialValue {
-            get => imperialValue;
-            set {
-                this.imperialValue = value;
-                this.SetProperty(ref imperialValue, value);
-            }
-        }
+
 
         public MainWindowViewModel() {
             CurrentMetricUnit = MetricUnit.Units.First();

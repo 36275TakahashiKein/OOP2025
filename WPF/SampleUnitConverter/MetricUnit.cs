@@ -4,8 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace SampleUnitConverter
-{
+namespace SampleUnitConverter {
     class MetricUnit : DistanceUnit {
         private static List<MetricUnit> units = new List<MetricUnit> {
             new MetricUnit{Name = "mm" , Coefficient = 1,},
