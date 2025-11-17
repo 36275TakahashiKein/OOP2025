@@ -18,8 +18,6 @@ namespace TextFileProcessorDI {
             }
         }
       
-
         public void Terminate() { }
-
     }
 }
