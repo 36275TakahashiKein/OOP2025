@@ -14,12 +14,10 @@ namespace TextFileProcessorDI {
         public void Execute(string line) {
             _count++;
             if (_count < 20) {
-                foreach (var item in line) {
-                    Console.Write(item);
-                }
-                Console.WriteLine("");
+                Console.WriteLine(line);
             }
         }
+      
 
         public void Terminate() { }
 
