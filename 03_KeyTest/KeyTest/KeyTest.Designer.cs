@@ -1,6 +1,6 @@
 ﻿namespace KeyTest
 {
-    partial class Form1
+    partial class KeyTest
     {
         /// <summary>
         ///  Required designer variable.
@@ -28,31 +28,32 @@
         /// </summary>
         private void InitializeComponent()
         {
-            richTextBox1 = new RichTextBox();
+            console = new RichTextBox();
             SuspendLayout();
             // 
-            // richTextBox1
+            // console
             // 
-            richTextBox1.Location = new Point(483, 166);
-            richTextBox1.Name = "richTextBox1";
-            richTextBox1.Size = new Size(150, 144);
-            richTextBox1.TabIndex = 0;
-            richTextBox1.Text = "";
-            richTextBox1.TextChanged += richTextBox1_TextChanged;
+            console.Location = new Point(274, 0);
+            console.Name = "console";
+            console.Size = new Size(381, 438);
+            console.TabIndex = 0;
+            console.Text = "";
+            console.KeyDown += KeyTest_KeyDown;
+            console.KeyUp += KeyTest_KeyUp;
             // 
-            // Form1
+            // KeyTest
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
-            Controls.Add(richTextBox1);
-            Name = "Form1";
+            Controls.Add(console);
+            Name = "KeyTest";
             Text = "Form1";
             ResumeLayout(false);
         }
 
         #endregion
 
-        private RichTextBox richTextBox1;
+        private RichTextBox console;
     }
 }
