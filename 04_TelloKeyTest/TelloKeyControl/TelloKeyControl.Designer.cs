@@ -1,6 +1,6 @@
-﻿namespace KeyTest
+﻿namespace TelloKeyControl
 {
-    partial class KeyTest
+    partial class TelloKeyControl
     {
         /// <summary>
         ///  Required designer variable.
@@ -33,21 +33,21 @@
             // 
             // console
             // 
-            console.Location = new Point(274, 0);
+            console.Location = new Point(482, 185);
             console.Name = "console";
-            console.Size = new Size(381, 438);
+            console.Size = new Size(150, 144);
             console.TabIndex = 0;
             console.Text = "";
-            console.KeyDown += KeyTest_KeyDown;
-            console.KeyUp += KeyTest_KeyUp;
+            console.KeyDown += TelloKeyControl_KeyDown;
+            console.KeyUp += TelloKeyControl_KeyUp;
             // 
-            // KeyTest
+            // TelloKeyControl
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
             Controls.Add(console);
-            Name = "KeyTest";
+            Name = "TelloKeyControl";
             Text = "Form1";
             ResumeLayout(false);
         }
