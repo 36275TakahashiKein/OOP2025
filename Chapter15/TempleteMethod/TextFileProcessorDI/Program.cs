@@ -5,7 +5,7 @@
             var processor = new TextFileProcessor(service);
             Console.Write("パスの入力");
 
-            processor.Run("C:\\Users\\infosys\\source\\repos\\OOP2025\\Chapter13\\Section01\\Library.cs");
+            processor.Run(Console.ReadLine());
         }
     }
 }
