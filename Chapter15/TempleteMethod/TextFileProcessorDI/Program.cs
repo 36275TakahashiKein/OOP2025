@@ -6,6 +6,7 @@
             Console.Write("パスの入力");
 
             processor.Run(Console.ReadLine());
+            //processor.Run("C:\\Users\\infosys\\source\\repos\\OOP2025\\Chapter13\\Section01\\Library.cs");
         }
     }
 }
