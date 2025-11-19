@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace TextFileProcessorDI {
     internal class LineOutputService : ITextFileService {
+        //P362 問題15.3
         private int _count;
         public void Initialize(string fname) {
             _count = 0;
