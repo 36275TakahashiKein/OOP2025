@@ -12,7 +12,11 @@ namespace TextFileProcessorDI {
         }
 
         public void Execute(string line) {
-            _count++;
+            string result = new string(
+                line.Select(c => ('０' <= c && c <= '９') ? (char)(c - '０' + '0') : c).ToArray()
+                );
+            Console.WriteLine(result);
+            /*_count++;
             if (_count < 20) {
                 string converted = line
                     .Replace('０', '0')
@@ -26,7 +30,7 @@ namespace TextFileProcessorDI {
                     .Replace('８', '8')
                     .Replace('９', '9');
                 Console.WriteLine(converted);
-            }
+            }*/
         }
 
         public void Terminate() { }
