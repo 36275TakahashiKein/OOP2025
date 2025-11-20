@@ -17,5 +17,22 @@ namespace TenkiApp {
         public MainWindow() {
             InitializeComponent();
         }
+        /// <summary>
+		/// 閉じるボタン
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
+		private void Button_Click(object sender, RoutedEventArgs e) {
+            this.Close();
+        }
+
+        /// <summary>
+        /// ドラッグ
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void Window_MouseLeftButtonDown(object sender, MouseButtonEventArgs e) {
+            this.DragMove();
+        }
     }
 }
