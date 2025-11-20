@@ -6,8 +6,9 @@
         xmlns:local="clr-namespace:TenkiApp"
         mc:Ignorable="d"
         Title="TenkiApp" Height="450" Width="800">
-    <Grid Background="Black">
-        <WebBrowser/>
+    <Grid >
+        <Label Content="地図" Foreground="Gold" FontStyle="Italic" FontSize="40" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Background="Black"/>
+        <Label Content="プロパティ" Background="RosyBrown"  FontSize="40" Foreground="Gold" FontStyle="Italic" HorizontalAlignment="Left" VerticalAlignment="Top" Height="277" Width="263" Margin="537,0,0,0"/>
 
     </Grid>
 </Window>
