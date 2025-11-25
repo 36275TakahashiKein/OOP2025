@@ -5,14 +5,112 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:TenkiApp"
         mc:Ignorable="d"
-        Title="TenkiApp" Height="450" Width="800">
-    <Grid >
-        <Label Content="地図" Foreground="Gold" FontStyle="Italic" FontSize="40" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Background="Black"/>
-        <Label Content="プロパティ" Background="RosyBrown"  FontSize="40" Foreground="Gold" FontStyle="Italic" HorizontalAlignment="Left" VerticalAlignment="Top" Height="277" Width="263" Margin="537,0,0,0"/>
-        <Label Content="Name" Background="LightSteelBlue" FontSize="40" Foreground="Gold" FontStyle="Italic" HorizontalAlignment="Center" VerticalAlignment="Top" Height="47" Width="650" Margin="0,360,0,0"/>
-        <Border CornerRadius="100" BorderThickness="100" Background="Violet"/>
+        Title="天気アプリ" Height="500" Width="800" WindowStartupLocation="CenterScreen">
 
+    <Window.Background>
+        <!-- グラデーション背景 -->
+        <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+            <GradientStop Color="White" Offset="0" />
+            <GradientStop Color="LightBlue" Offset="1" />
+        </LinearGradientBrush>
+    </Window.Background>
 
+    <Grid>
+        <!-- グリッドの行定義 -->
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <!-- タイトル -->
+            <RowDefinition Height="Auto"/>
+            <!-- 入力フォーム -->
+            <RowDefinition Height="Auto"/>
+            <!-- ボタン -->
+            <RowDefinition Height="*"/>
+            <!-- 結果表示エリア -->
+        </Grid.RowDefinitions>
 
+        <!-- タイトル -->
+        <TextBlock HorizontalAlignment="Center" VerticalAlignment="Top" FontSize="26" FontWeight="Bold" Margin="0,20,0,0" Grid.Row="0">
+            天気情報
+        </TextBlock>
+
+        <!-- 入力フォーム -->
+        <StackPanel HorizontalAlignment="Center" VerticalAlignment="Top" Orientation="Vertical" Margin="0,10,0,0" Grid.Row="1">
+            <!-- 緯度入力 -->
+            <Grid Margin="10">
+                <TextBox x:Name="LatitudeTextBox"
+                         Width="250"
+                         Height="40"
+                         VerticalContentAlignment="Center"
+                         Padding="10,5"
+                         BorderBrush="#1E90FF"
+                         BorderThickness="2"
+                         FontSize="16"
+                         TextChanged="LatitudeTextBox_TextChanged"/>
+                <TextBlock x:Name="LatitudePlaceholder"
+                           Text="緯度を入力"
+                           Foreground="Gray"
+                           HorizontalAlignment="Left"
+                           VerticalAlignment="Center"
+                           Padding="10,5"
+                           IsHitTestVisible="False"/>
+            </Grid>
+
+            <!-- 経度入力 -->
+            <Grid Margin="10">
+                <TextBox x:Name="LongitudeTextBox"
+                         Width="250"
+                         Height="40"
+                         VerticalContentAlignment="Center"
+                         Padding="10,5"
+                         BorderBrush="#1E90FF"
+                         BorderThickness="2"
+                         FontSize="16"
+                         TextChanged="LongitudeTextBox_TextChanged"/>
+                <TextBlock x:Name="LongitudePlaceholder"
+                           Text="経度を入力"
+                           Foreground="Gray"
+                           HorizontalAlignment="Left"
+                           VerticalAlignment="Center"
+                           Padding="10,5"
+                           IsHitTestVisible="False"/>
+            </Grid>
+        </StackPanel>
+
+        <!-- 天気取得ボタン -->
+        <Button Content="天気を取得" Width="250" Height="45" Margin="10" FontSize="16"
+                Background="#1E90FF" Foreground="White" BorderBrush="#1E90FF" BorderThickness="2"
+                VerticalAlignment="Center" HorizontalAlignment="Center" Click="OnGetWeatherButtonClick" Grid.Row="2">
+            <Button.Style>
+                <Style TargetType="Button">
+                    <Style.Triggers>
+                        <EventTrigger RoutedEvent="Button.MouseEnter">
+                            <BeginStoryboard>
+                                <Storyboard>
+                                    <ColorAnimation Storyboard.TargetProperty="(Button.Background).(SolidColorBrush.Color)"
+                                                    To="MediumPurple" Duration="0:0:0.2"/>
+                                </Storyboard>
+                            </BeginStoryboard>
+                        </EventTrigger>
+                        <EventTrigger RoutedEvent="Button.MouseLeave">
+                            <BeginStoryboard>
+                                <Storyboard>
+                                    <ColorAnimation Storyboard.TargetProperty="(Button.Background).(SolidColorBrush.Color)"
+                                                    To="#1E90FF" Duration="0:0:0.2"/>
+                                </Storyboard>
+                            </BeginStoryboard>
+                        </EventTrigger>
+                    </Style.Triggers>
+                </Style>
+            </Button.Style>
+        </Button>
+
+        <!-- 結果表示 -->
+        <StackPanel HorizontalAlignment="Center" VerticalAlignment="Top" Orientation="Vertical" Margin="20" Grid.Row="3">
+            <!-- 天気アイコン -->
+            <Image x:Name="WeatherIcon" Width="50" Height="50" HorizontalAlignment="Center" />
+            <Border Background="#f5f5f5" BorderBrush="#1E90FF" BorderThickness="2" Padding="20" CornerRadius="10">
+                <TextBlock x:Name="WeatherResult" HorizontalAlignment="Center" FontSize="18" Foreground="Black" TextWrapping="Wrap"/>
+            </Border>
+        </StackPanel>
     </Grid>
 </Window>

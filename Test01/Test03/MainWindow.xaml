@@ -1,0 +1,15 @@
+﻿<Window x:Class="Test03.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Test03"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Grid Margin="0,0,0,-67">
+        <Label Content="地図" Foreground="Gold" FontStyle="Italic" FontSize="40" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Background="Black"/>
+        <Label Content="プロパティ" Background="RosyBrown"  FontSize="40" Foreground="Gold" FontStyle="Italic" HorizontalAlignment="Left" VerticalAlignment="Top" Height="277" Width="263" Margin="537,0,0,0"/>
+        <Label Content="Name" Background="LightSteelBlue" FontSize="35" Foreground="Gold" FontStyle="Italic" HorizontalAlignment="Center" VerticalAlignment="Top" Height="55" Width="650" Margin="0,381,0,0"/>
+        <Border CornerRadius="100" BorderThickness="100" Background="Violet" Margin="10,-38,-10,38"/>
+    </Grid>
+</Window>
