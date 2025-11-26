@@ -1,5 +1,4 @@
-﻿using Microsoft.VisualBasic;
-using System.ComponentModel;
+﻿using System.ComponentModel;
 using System.Net.Http;
 using System.Text;
 using System.Text.Json;
@@ -12,9 +11,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using Microsoft.VisualBasic; // 追加
 
-namespace TenkiApp {
+namespace Test04 {
     /// <summary>
     /// Interaction logic for MainWindow.xaml
     /// </summary>
@@ -151,19 +149,13 @@ namespace TenkiApp {
             await VM.GetByCurrentLocationAsync(36.29, 139.38);
         }
 
-
-
         private async void LatLon_Click(object sender, RoutedEventArgs e) {
-            var dialog = new LatLonDialog {
-                Owner = this // 親ウィンドウを指定
-            };
-
-            if (dialog.ShowDialog() == true) {
-                await VM.GetByLatLonAsync(dialog.Latitude, dialog.Longitude);
-            }
+            // ダイアログや別入力から数値を取得する設計に
+            double lat = 36.29, lon = 139.38;
+            await VM.GetByLatLonAsync(lat, lon);
         }
-
-
     }
+
+
 
 }
